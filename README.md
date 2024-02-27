@@ -1,4 +1,6 @@
-﻿# foo
+
+ 
+ # foo
 Introduction:
 
 Our newest development is an app that allows college students to get access to the
@@ -33,3 +35,6 @@ Scope:
 This document specifies the requirements for the following capabilities:
 User Registration: Allow users to register with their college email and student ID
 for verification purposes.
+
+
+https://google.github.io/styleguide/cppguide.html
