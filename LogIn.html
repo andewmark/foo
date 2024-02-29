@@ -8,28 +8,38 @@
 </head>
 <body>
     <nav>
-        <a class="active" href="#home">Home</a>
-        <a href="#buy">Buy</a>
-        <a href="#sell">Sell</a>
-        <a href="#messages">Messages</a>
-        <a href="#notificaitons">Notificaitons</a>
+        <h1><a href="#home"> Logo goes here</a></h1>
     </nav>
 
-    <div class = "account">
-        <a href="./LogIn.html">Login</a>
-        <a href="./SignUp.html">Signup</a>
-    </div>
+    <hr class="solid">
 
-    <h1>Login Page</h1>
+    <h1 id="title">Login</h1>
 
-    <section class="Username">
-        <label for="username">Username</label>
-        <input type="text" name="Username" id="username" value="write username here">
-    </section>
+    <h3>Hi, Welcome back &#x1F44B</h3>
 
-    <section class="password">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+    <section class="border">
+        <form>
+            <label for="Email">Email</label>
+            <input type="text" name="Email" id="email" placeholder="E.g. johndoe@gmail.com">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            
+            <div class="remember">
+                <input type="checkbox" value="lsRememberMe" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- Swaps between login and signup page --> 
+            
+        <div class ="account">
+            <h5>Not registered yet?<a href="./SignUp.html" id="signup"> Create an account &#129149</a></h5>
+            <a href="./forgotPass.html" id="forgot">Forgot Password?</a>
+        </div>
+
     </section>
     
 </body>

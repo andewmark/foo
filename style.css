@@ -1,0 +1,126 @@
+hr.solid {
+    border-top: 1px solid lightgray;
+  }
+
+h1 a {
+    font-family:  blippo, fantasy;
+    text-decoration: none;
+    color: inherit;
+    font-size: x-large;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    right: 128px;
+}
+
+h5 {
+    text-align: center;
+    color: rgb(80, 79, 79);
+}
+
+#welcome {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    right: 150px;
+}
+
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+    right: 150px;
+    top: 20px;
+}
+
+#create {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+    right: 135px;
+    top: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 5px 0;
+    width: 400px;
+    border: groove;
+    border-color: rgb(227, 224, 224);
+    border-radius: 5px;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    margin-bottom: 3px;
+    margin-right: 2px;
+}
+
+input[type=checkbox] {
+    position: relative;
+    right: 252px;
+}
+
+label[for="rememberMe"] {
+    position: relative;
+    bottom: 33px;
+    right: 35px
+}
+
+input[type=submit] {
+    padding: 4px;
+    background-color: #24a0ed;
+    color:white;
+    margin-top: -10px;
+    display: block;
+    font-size: large;
+    border: none;
+    padding: 10px 0;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(4, 35, 172);
+}
+
+#acc {
+    margin-top: 10px;
+}
+
+input, label {
+    display: block;
+    position: relative;
+    right: 55px;
+}
+
+#signup {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: small;
+}
+
+#forgot {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: small;
+    display: block;
+    margin: auto 40px;
+    position: relative;
+    bottom: 141px;
+    left: 205px;
+}
+
+.border {
+    margin: 30px auto;
+    height: 300px;
+    width: 300px;
+}

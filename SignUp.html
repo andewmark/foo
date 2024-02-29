@@ -3,34 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="account">
-        <a href="./LogIn.html">Login</a>
-        <a href="./SignUp.html">Signup</a>
-    </div>
 
-    <h1>SignUp</h1>
+    <nav>
+        <h1><a href="#home">Logo goes here</a></h1>
+    </nav>
 
-    <section class="email">
-        <label for="email">Email</label>
-        <input type="text" name="email-input" id="email">
-    </section>
-    
-    <section class="username">
-        <label for="username">Username</label>
-        <input type="text" name="username-input" id="username">
+    <hr class="solid">
+
+    <h1 id="create">Sign up</h1>
+
+    <h3 id="welcome">Hi, Welcome &#x1F44B</h3>
+
+    <section class="border">
+        <form>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email-input" id="email" placeholder="E.g. johndoe@gmail.com">
+
+            <label for="username">Username:</label>
+            <input type="text" name="username-input" id="username">
+
+            <label for="password">Password:</label>
+            <input type="password" name="password-input" id="password">
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password-input" id="confirm-password">
+
+            <input type="submit" value="Create account" id="acc">
+
+        </form>
+
+        <!-- Swap to Login Page -->
+        <div class ="account">
+            <h5>Already have an account? <a href="./Login.html" id="signup">login here &#129149</a></h5>
+        </div>
+
     </section>
 
-    <section class="password">
-        <label for="password">Password</label>
-        <input type="password" name="password-input" id="password">
-    </section>
-
-    <section class="confrim-password">
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" name="confirm-password-input" id="confirm-password">
-    </section>
 </body>
 </html>
