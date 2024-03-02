@@ -4,54 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketplace</title>
-    <style>
-        /* Basic styles for the navigation tabs */
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #f0f2f5;
-        }
-        
-        li {
-            float: left;
-        }
-        
-        li a {
-            display: block;
-            color: #000;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        li a:hover {
-            background-color: #ddd;
-        }
-        
-        .active {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navigation tabs -->
-<ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#buy">Buy</a></li>
-    <li><a href="#sell">Sell</a></li>
-    <li><a href="#messages">Messages</a></li>
-    <li><a href="#notifications">Notifications</a></li>
-</ul>
+    <!-- Menu bar on the left side -->
+    <div class="sidebar">
+        <h3>Student Market Place</h3>
+        <a href="#">Browse All</a>
+        <a href="#">Notification</a>
+        <a href="#">Inbox</a>
+        <a href="#">Buying</a>
+        <a href="#">Selling</a>
+    </div>
 
-<!-- Content -->
-<div style="padding:20px">
-    <h2>Welcome to Marketplace</h2>
-    <p>This is a simple example of a Marketplace layout with navigation tabs.</p>
+    <!-- Navigation tabs centered at the top -->
+    <div class="naviBar-Parent">
+    <ul class="naviBar">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#buy">Buy</a></li>
+        <li><a href="#sell">Sell</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#notifications">Notifications</a></li>
+        <!-- Icon buttons -->
+        <div class="icons">
+            <li><a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a></li>
+            <li><a class="icon" href="#"><img src="images/icons/bell.png" alt="Icon 2"></a></li>
+            <li><a class="icon" href="#"><img src="images/icons/user.png" alt="Icon 3"></a></li>
+            <li><a class="icon" href="#"><img src="images/icons/share.png" alt="Icon 4"></a></li>
+        </div>
+        
+    </ul>
 </div>
+
+    <!-- Content -->
+    <!-- <div style="padding:20px">
+        <h2>Welcome to Marketplace</h2>
+        <p>This is a simple example of a Marketplace layout with navigation tabs.</p>
+    </div> -->
 
 </body>
 </html>
+
+
