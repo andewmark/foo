@@ -56,3 +56,119 @@ li a:hover {
 .icon:hover {
     background-color: #ddd;
 }
+
+/*for side bar */
+.sidebar {
+    height: 100%;
+    width: 400px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #767474;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 5%;
+}
+
+h2 {
+    position: relative;
+    bottom: 30px;
+    left: 10px;
+    font-size: xx-large;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+    height: 40px;
+    width: calc(100% - 40px);
+    margin: 10px;
+    font-size: larger;
+}
+
+input:hover {
+    border-color: #ffff;
+}
+
+label {
+    position: relative;
+    left: 15px;
+    top: 10px;
+}
+
+#imageInput {
+    border: none;
+}
+
+#description {
+    padding-bottom: 100px;
+}
+
+#post {
+    background-color: #ffff;
+    width: calc(100% - 30px);
+    padding-bottom: 10px;
+}
+
+
+
+
+/* for preview of post*/
+.preview {
+    height: 85%;
+    width: 530px;
+    position: fixed;
+    top: 0px;
+    left: 600px;
+    background-color: #767474;
+    overflow-x: hidden; 
+    padding-top: 20px;
+    margin-top: 6%;
+
+    border-radius: 20px;
+    border-style: groove;
+    border-color: #767474;
+
+    font-weight: bold;
+    color: #ffff;
+}
+
+.preview img {
+    position: absolute; /* Position the image absolutely within its container */
+    top: 0; /* Align the top of the image with the top of the container */
+    left: 0; /* Align the left of the image with the left of the container */
+    width: 100%; /* Ensure the image fills the container horizontally */
+    height: auto; /* Let the browser calculate the height to maintain aspect ratio */
+}
+
+#Title {
+    position: relative;
+    top: 310px;
+    left: 10px;
+}
+
+#Price {
+    position: relative;
+    top: 249px;
+    left: 480px;
+}
+
+#Details {
+    position: relative;
+    top: 280px; 
+    left: 10px;
+}
+
+#Condition {
+    position: relative;
+    top: 270px;
+    left: 10px;
+    word-spacing: 50px;
+}
+
+#Description {
+    position: relative;
+    top: 250px;
+    left: 10px;
+}
