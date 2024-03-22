@@ -1,0 +1,206 @@
+body{
+    font-family:'Verdana';
+    background-image: radial-gradient(circle, #070F28, #1B1A55);
+    color: #ffff;
+}
+nav {
+    background-color: #3c0753;
+    position: relative;
+    left: 470px;
+    width: 600px; /* Increase width to accommodate icons and text */
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 22px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+  }
+
+  nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 22px;
+    align-self: center; /* Text aligns to the center of the navigation bar */
+  }
+
+nav > a:hover {
+    transition: 0.25s;
+    background: rgb(56, 130, 209);
+    color: white;
+}
+
+.active {
+    background-color: #030637;
+    color: white;
+    border-color: transparent;
+}
+
+.icon {
+    float: right; /* Make icons float to the right */
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+    width: 24px;
+    height: 24px;
+  }
+
+.icon img {
+    width: 100%; /* Make the image inside the icon container fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for the sidebar */
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:#3c0753;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 0;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #3c0753; /* Set background color of scrollbar track */
+  }
+  
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
+h3 {
+    position: relative;
+    left: 20px;
+    bottom: 30px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: gray;
+}
+
+h3 span {
+    font-size: 25px;
+    position: relative;
+    left: 27px;
+    color: white;
+}
+
+h3 i {
+    font-size: 25px;
+    color: white;
+    position: relative;
+    top: 14px;
+    right: 5px;
+}
+
+.sidebar > a {
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    display: block;
+    position: relative;
+    bottom: 20px;
+}
+
+.sidebar a:hover {
+    transition: .25s;
+    background-color: #ffffff; 
+    color: black; 
+
+    #icon::before {
+        color: white;
+    }
+  }
+
+  #rightarrow {
+    position: relative;
+    left: 140px;
+}
+
+#leftarrow:hover {
+    background-color: transparent;
+}
+
+#icon {
+    background-color: #1B1A55;
+    padding: 8px;
+    border-radius: 18px;
+}
+
+
+/* For Main Page Area */
+h4 {
+    text-align: center;
+    font-size: 20px;
+    margin-left: 285px;
+    margin-top: 250px;
+    color: rgb(181, 181, 181);
+}
+
+h4 i {
+    font-size: 80px;
+    position: relative;
+    bottom: 40px;
+}
+
+
+/* For saved / recent activity */
+.gallery {
+    position: absolute;
+    left: 300px;
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(auto, 1fr);
+    grid-gap: 25px;
+    grid-row-gap: 25px;
+}
+
+img:hover {
+    transition: 0.5s;
+    transform: scale(0.95);
+}
+
+.gallery img {
+    margin: 0; /* Remove default margin */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    transition: transform 0.25s ease;
+}
+
+.post-container {
+    height: 275px;
+}
+  
+.item-details {
+    color: white;
+    font-weight: bold;
+}
+
+#Price {
+    position: relative;
+    bottom: 10px;
+}
+
+#Title {
+    position: relative;
+    bottom: 20px;
+}
+
+#Location {
+    color: gray;
+    font-size: 14px;
+    position: relative;
+    bottom: 30px;
+}
