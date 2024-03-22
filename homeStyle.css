@@ -95,9 +95,9 @@ h3 {
 }
 
 .sidebar a:hover {
-    /* Only change background color of pseudo-element on hover */
-    background-color: #ffffff; /* Set desired hover color for background */
-    color: black; /* Set desired hover color for text */
+    transition: .25s;
+    background-color: #ffffff; 
+    color: black; 
 
     #icon::before {
         color: white;
@@ -146,19 +146,6 @@ button:hover {
     background-color: #1B1A55;
     padding: 8px;
     border-radius: 18px;
-}
-
-.icon {
-    padding: 8px; /* Adjust padding */
-    text-decoration: none;
-    color: #000;
-    width: 24px; /* Adjust width */
-    height: 24px; /* Adjust height */
-}
-
-.icon img {
-    width: 100%; /* Make the image inside the icon container fill the entire width */
-    height: auto; /* Maintain aspect ratio */
 }
 
 .gallery {
