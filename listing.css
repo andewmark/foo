@@ -1,0 +1,49 @@
+body{
+    font-family:'Verdana';
+    background-image: radial-gradient(circle, #070F28, #1B1A55);
+    color: #ffff;
+}
+nav {
+    background-color: #3c0753;
+    margin: auto;
+    width: 600px; /* Increase width to accommodate icons and text */
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 22px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+  }
+
+  nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 22px;
+    align-self: center; /* Text aligns to the center of the navigation bar */
+  }
+
+nav > a:hover {
+    transition: 0.25s;
+    background: rgb(56, 130, 209);
+    color: white;
+}
+
+.active {
+    background-color: #030637;
+    color: white;
+    border-color: transparent;
+}
+
+.icon {
+    float: right; /* Make icons float to the right */
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+    width: 24px;
+    height: 24px;
+  }
+
+.icon img {
+    width: 100%; /* Make the image inside the icon container fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+}

@@ -3,6 +3,17 @@ body{
     background-image: radial-gradient(circle, #070F28, #1B1A55);
     color: #ffff;
 }
+
+body::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #1B1A55;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
 nav {
     background-color: #3c0753;
     position: relative;
