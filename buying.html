@@ -12,7 +12,7 @@
     <!-- Menu bar on the left side -->
     <div class="sidebar">
         <h3><a id="leftarrow" href="/home.html"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Buying</span></h3>
-        <a id="recent" href="#recent"><i id= "icon" class="fa-solid fa-clock"></i> Recent Activity</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
+        <a class="active" id="recent" href="#recent"><i id= "icon" class="fa-solid fa-clock"></i> Recent Activity</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
         <a id="saved" href="#saved"><i id="icon" class="fa-solid fa-bookmark"></i> Saved</a>
         <a href="/chat.html"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
     </div>
@@ -34,17 +34,80 @@
         </div>
     </nav>
 
+    <!-- Gallery content will go here -->
+
     <div class="recent">
+        <div class="recent-container">
+            <div class="recent-info">
+                <img src="images/defaultImg.png">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+            </div>
+        </div>
+
+        <div class="recent-container">
+            <div class="recent-info">
+                <img src="images/defaultImg.png">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+            </div>
+        </div>
+
+        <div class="recent-container">
+            <div class="recent-info">
+                <img src="images/defaultImg.png">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class = "saved">
+        <div class="post-container">
+            <a href="#"><img id="pic1" src="images/img_5terre.jpg"></a>
+            <div class="item-details">
+                <p id="Price">$XX</p> <!--XX changes Based on DB-->
+                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
+                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
+            </div>
+        </div>
+
+        <div class="post-container">
+            <a href="#"><img id="pic2" src="images/img_forest.jpg"></a>
+            <div class="item-details">
+                <p id="Price">$XX</p> <!--XX changes Based on DB-->
+                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
+                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
+            </div>
+        </div>
+
+        <div class="post-container">
+            <a href="#"><img id="pic3" src="images/img_lights.jpg"></a>
+            <div class="item-details">
+                <p id="Price">$XX</p> <!--XX changes Based on DB-->
+                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
+                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
+            </div>
+        </div>
+
+        <div class="post-container">
+            <a href="#"><img id="pic4" src="images/img_mountains.jpg"></a>
+            <div class="item-details">
+                <p id="Price">$XX</p> <!--XX changes Based on DB-->
+                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
+                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="recent-message">
         <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
     </div>
 
-    <div class="saved">
+    <div class="saved-message">
         <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
     </div>
-
-    <!-- Gallery content will go here -->
-
-    <script src="buying.js"></script>
     
 </body>
 </html>

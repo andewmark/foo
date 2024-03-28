@@ -152,13 +152,59 @@ h4 i {
     bottom: 40px;
 }
 
+/*Recent activity main page */
+.recent-container {
+    height: 150px;
+    width: 70%;
+    background-color: #3c0753;
+    position: relative;
+    left: 340px;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    transition: transform .25s ease;
+    overflow: hidden;
+}
 
-/* For saved / recent activity */
-.gallery {
-    position: absolute;
+.recent-container img {
+    margin: 15px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.recent-container h2 {
+    position: relative;
+    bottom: 170px;
+    left: 230px;
+}
+
+.recent-container h3 {
+    position: relative;
+    bottom: 190px;
+    left: 230px;
+    font-size: 20px;
+}
+
+.recent-container:hover {
+    background-color: white;
+    color: #000;
+    transition: 0.5s;
+    transform: scale(0.98);
+    cursor: pointer;
+    h3 {
+        color: #000;
+    }
+}
+
+
+/*saved main page */
+.saved {
+    position: relative;
     left: 300px;
     display: grid;
     margin: 20px;
+    width: 910px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     grid-gap: 25px;
@@ -170,7 +216,7 @@ img:hover {
     transform: scale(0.95);
 }
 
-.gallery img {
+.saved img {
     margin: 0; /* Remove default margin */
     width: 100%;
     height: 200px;
@@ -179,6 +225,7 @@ img:hover {
     box-shadow: 2px 2px 20px rgba(0,0,0,3);
     transition: transform 0.25s ease;
 }
+
 
 .post-container {
     height: 275px;
@@ -205,3 +252,4 @@ img:hover {
     position: relative;
     bottom: 30px;
 }
+
