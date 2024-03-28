@@ -1,0 +1,9 @@
+MYSQL_CONCPP_DIR = "/usr/local/mysql-connector-c++/include/jdbc"
+CPPFLAGS = -I$(MYSQL_CONCPP_DIR) -I"/usr/local/mysql-connector-c++/include" -L"/usr/local/mysql-connector-c++/lib64"
+LDLIBS = -lmysqlcppconn8
+CXX = clang++ -stdlib=libc++
+CXXFLAGS = -std=c++17 -Wall
+
+main: main.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o main main.cpp $(LDLIBS)
+
