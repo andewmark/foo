@@ -1,0 +1,264 @@
+body{
+    font-family:'Verdana';
+    background-image: radial-gradient(circle, #070F28, #1B1A55);
+    color: #ffff;
+}
+nav {
+    background-color: #3c0753;
+    position: relative;
+    left: 470px;
+    width: 600px; /* Increase width to accommodate icons and text */
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 22px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+  }
+
+  nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 22px;
+    align-self: center; /* Text aligns to the center of the navigation bar */
+  }
+
+nav > a:hover {
+    transition: 0.25s;
+    background: rgb(56, 130, 209);
+    color: white;
+}
+
+.active {
+    background-color: #030637;
+    color: white;
+    border-color: transparent;
+}
+
+.icon {
+    float: right; /* Make icons float to the right */
+    padding: 8px;
+    text-decoration: none;
+    color: #000;
+    width: 24px;
+    height: 24px;
+  }
+
+.icon img {
+    width: 100%; /* Make the image inside the icon container fill the entire width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styles for the sidebar */
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:#3c0753;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 0;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #3c0753; /* Set background color of scrollbar track */
+  }
+  
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
+.sidebar h3 {
+    position: relative;
+    left: 20px;
+    bottom: 30px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: gray;
+}
+
+h3 span {
+    font-size: 25px;
+    position: relative;
+    left: 27px;
+    color: white;
+}
+
+h3 i {
+    font-size: 25px;
+    color: white;
+    position: relative;
+    top: 14px;
+    right: 5px;
+}
+
+.sidebar > a {
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    display: block;
+    position: relative;
+    bottom: 20px;
+    margin: 2px;
+}
+
+.sidebar a:hover {
+    transition: .25s;
+    background-color: #ffffff; 
+    color: black; 
+
+    #icon::before {
+        color: white;
+    }
+  }
+
+  #rightarrow {
+    position: relative;
+    left: 140px;
+}
+
+#leftarrow:hover {
+    background-color: transparent;
+}
+
+#icon {
+    background-color: #1B1A55;
+    padding: 8px;
+    border-radius: 18px;
+}
+
+#new-listing {
+    background-color: #910a67;
+    color: #ffffff;
+    margin: 10px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    text-align: center;
+    font-size: 16px;
+}
+
+#new-listing:hover {
+    background-color: #b02584;
+    transition: .25s;
+    color: black;
+    cursor: pointer;
+}
+
+/* Main Page */
+
+.notif-container {
+    width: 70%;
+    position: relative;
+    left: 340px;
+    margin-top: 25px;
+}
+
+#notif {
+    background-color: #3c0753;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    transition: transform .25s ease;
+    overflow: hidden;
+}
+
+.price-drop {
+    height: 150px;
+}
+
+.price-drop img {
+    margin: 15px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.price-drop h2 {
+    position: relative;
+    bottom: 170px;
+    left: 230px;
+    color: #b02584;
+}
+
+.price-drop h3 {
+    position: relative;
+    bottom: 190px;
+    left: 231px;
+    font-size: 20px;
+    margin-bottom: -20px;
+}
+
+#listing-new-price {
+    position: relative;
+    bottom: 190px;
+    left: 231px;
+    font-size: 20px;
+}
+
+#listing-old-price {
+    position: relative;
+    bottom: 241px;
+    left: 290px;
+    font-size: 20px;
+    text-decoration: line-through;
+    color: #545454;
+}
+
+.new-message-recieved {
+    height: 75px;
+}   
+
+.new-message-recieved img {
+    margin: 7px;
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.new-message-recieved h2 {
+    position: relative;
+    left: 80px;
+    bottom: 90px;
+    font-size: 20px;
+}
+
+.new-message-recieved h3 {
+    color: #7c7c7c;
+    position: relative;
+    left: 80px;
+    bottom: 100px;
+    width: 25ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.site-announcment-container {
+    
+}
+
+.site-announcment-container h2 {
+    margin-left: 10px;
+    margin-bottom: -15px;
+    position: relative;
+    bottom: 15px;
+    color: #b02584;
+}
+
+.site-announcment-container h3 {
+    margin-left: 10px;
+    position: relative;
+    bottom: 15px;
+    font-size: 15px;
+    margin-bottom: -5px;
+}
