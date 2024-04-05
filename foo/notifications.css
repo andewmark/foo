@@ -76,11 +76,10 @@ nav > a:hover {
 
 .sidebar h3 {
     position: relative;
-    left: 20px;
+    left: 10px;
     bottom: 30px;
-    margin-bottom: 10px;
-    font-size: 17px;
-    color: gray;
+    margin-bottom: 0px;
+    font-size: 22px;
 }
 
 h3 span {

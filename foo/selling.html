@@ -22,16 +22,14 @@
     <nav>
         <a href="/home.html">Home</a>
         <a href="/buying.html">Buy</a>
-        <a class="active">Sell</a>
+        <a class="active" href="./selling.html">Sell</a>
         <a href="/chat.html">Messages</a>
         <a href="./notifications.html">Notifications</a>  
         
         <!-- Icon buttons -->
         <div class="icons">
             <a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a>
-            <a class="icon" href="#"><img src="images/icons/bell.png" alt="Icon 2"></a>
             <a class="icon" href="#"><img src="images/icons/user.png" alt="Icon 3"></a>
-            <a class="icon" href="#"><img src="images/icons/share.png" alt="Icon 4"></a>
         </div>
     </nav>
 
@@ -85,6 +83,61 @@
             <h3>Unread messages:</h3>
             <h1 id="unread">0</h1>
         </a>
+    </div>
+
+    <!-- User Listings -->
+    
+    <!-- If no listings -->
+    <div class="listing-message">
+        <h4><i class="fa-solid fa-magnifying-glass"></i><br>No Listings Founds<br> Create a Listing!</h4>
+        <a id="new-listing" href="/post.html"><i class="fa-solid fa-plus"></i> Create new post</a>
+    </div>
+
+    <!-- If there are listings -->
+    <div class="listings">
+        <div class="listing-container" id="active">
+            <img src="images/defaultImg.png">
+            <div class="info">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
+                <h3 id="status">Status: Active</h3>
+                <a id="edit" href="#">edit post</a>
+            </div>
+        </div>
+
+        <div class="listing-container" id="sold">
+            <img src="images/defaultImg.png">
+            <div class="info">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
+                <h3 id="status">Status: Sold</h3>
+                <a id="edit" href="#">edit post</a>
+            </div>
+        </div>
+
+        <div class="listing-container" id="expired">
+            <img src="images/defaultImg.png">
+            <div class="info">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
+                <h3 id="status">Status: Expired</h3>
+                <a id="edit" href="#">edit post</a>
+            </div>
+        </div>
+
+        <div class="listing-container" id="in-process">
+            <img src="images/defaultImg.png">
+            <div class="info">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
+                <h3 id="status">Status: In-Process</h3>
+                <a id="edit" href="#">edit post</a>
+            </div>
+        </div>
     </div>
     
 </body>
