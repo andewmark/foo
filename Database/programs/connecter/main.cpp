@@ -79,7 +79,7 @@ void Database::executeQuery(const std::string& query) {
 }
 
 int main() {
-    Database Huda("127.0.0.1", "root", "huda", "studentmarket");
+    Database Huda("127.0.0.1", "root", "password", "studentmarket");
     Huda.connect();
     Huda.executeQuery("SELECT * FROM campuses");
     Huda.disconnect();
