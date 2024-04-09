@@ -1,0 +1,136 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <mysql/jdbc.h>
+
+class DatabaseException : public std::exception {
+private:
+    std::string message;
+
+public:
+    DatabaseException(const std::string& msg) : message(msg) {}
+
+    const char* what() const noexcept override {
+        return message.c_str();
+    }
+};
+
+class Database {
+protected:
+    sql::Driver *driver;
+    sql::Connection *con;
+
+public:
+    Database(const std::string& host, const std::string& user, const std::string& password, const std::string& schema) {
+        driver = get_driver_instance();
+        con = driver->connect("tcp://" + host + ":3306", user, password);
+        con->setSchema(schema);
+    }
+
+    virtual ~Database() {
+        delete con;
+    }
+
+    virtual void executeQuery(const std::string& query) {
+        try {
+            sql::Statement *stmt = con->createStatement();
+            stmt->execute(query);
+            delete stmt;
+        } catch (sql::SQLException &e) {
+            throw DatabaseException(std::string("SQLException: ") + e.what());
+        }
+    }
+
+    virtual sql::ResultSet* select(const std::string& query) {
+        try {
+            sql::Statement *stmt = con->createStatement();
+            return stmt->executeQuery(query);
+        } catch (sql::SQLException &e) {
+            throw DatabaseException(std::string("SQLException: ") + e.what());
+        }
+    }
+
+    virtual void insert(const std::string& table, const std::vector<std::string>& columns, const std::vector<std::string>& values) {
+        std::string query = "INSERT INTO " + table + " (";
+        for (size_t i = 0; i < columns.size(); ++i) {
+            query += columns[i];
+            if (i < columns.size() - 1) {
+                query += ", ";
+            }
+        }
+        query += ") VALUES (";
+        for (size_t i = 0; i < values.size(); ++i) {
+            query += "'" + values[i] + "'";
+            if (i < values.size() - 1) {
+                query += ", ";
+            }
+        }
+        query += ")";
+        executeQuery(query);
+    }
+
+    virtual void update(const std::string& table, const std::string& setClause, const std::string& whereClause) {
+        std::string query = "UPDATE " + table + " SET " + setClause + " WHERE " + whereClause;
+        executeQuery(query);
+    }
+
+    virtual void remove(const std::string& table, const std::string& whereClause) {
+        std::string query = "DELETE FROM " + table + " WHERE " + whereClause;
+        executeQuery(query);
+    }
+};
+
+class SecureDatabase : public Database {
+private:
+    std::string encryptionKey;
+
+public:
+    SecureDatabase(const std::string& host, const std::string& user, const std::string& password, const std::string& schema, const std::string& key)
+        : Database(host, user, password, schema), encryptionKey(key) {}
+
+    ~SecureDatabase() override {}
+
+    void executeQuery(const std::string& query) override {
+        std::string encryptedQuery = encrypt(query);
+        Database::executeQuery(encryptedQuery);
+    }
+
+    // Additional methods for encryption and decryption
+    std::string encrypt(const std::string& data) {
+        // Encryption logic
+        return data;
+    }
+
+    std::string decrypt(const std::string& encryptedData) {
+        // Decryption logic
+        return encryptedData;
+    }
+};
+
+int main() {
+    // Example usage of SecureDatabase
+    SecureDatabase db("127.0.0.1", "root", "password", "test", "encryption_key");
+
+    // Example usage: Inserting a record
+    std::vector<std::string> columns = {"name", "age"};
+    std::vector<std::string> values = {"John", "30"};
+    db.insert("people", columns, values);
+
+    // Example usage: Updating a record
+    db.update("people", "age = 35", "name = 'John'");
+
+    // Example usage: Removing a record
+    db.remove("people", "name = 'John'");
+
+    // Example usage: Selecting records
+    sql::ResultSet *res = db.select("SELECT * FROM people");
+    if (res) {
+        while (res->next()) {
+            std::cout << "Name: " << res->getString("name") << ", Age: " << res->getInt("age") << std::endl;
+        }
+        delete res;
+    }
+
+    return 0;
+}
+
