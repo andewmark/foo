@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/listing.css">
+    <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Menu bar on the left side -->
+    <div class="sidebar">
+        <h3><a id="leftarrow" href="/"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace</h3>
+        
+        <a href="#"><i id="icon" class="fa-solid fa-store"></i> Browse All</a>
+        <a href="./notifications"><i id="icon" class="fa-solid fa-bell"></i> Notifications</a>
+        <a href="/chat"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+        <a href="/buying"><i id="icon" class="fa-solid fa-bag-shopping"></i> Buying <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a href="/selling"><i id="icon" class="fa-solid fa-tag"></i> Selling <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a id="new-listing" href="/post"><i class="fa-solid fa-plus"></i> Create new post</a>
+    </div>
+
+    <!-- Navigation tabs centered at the top -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/buying">Buy</a>
+        <a href="/selling">Sell</a>
+        <a href="/chat">Messages</a>
+        <a href="/notifications">Notifications</a>  
+        
+        <!-- Icon buttons -->
+        <div class="icons">
+            <a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a>
+            <a class="icon" href="/profile"><img src="images/icons/user.png" alt="Icon 3"></a>
+        </div>
+    </nav>
+
+    <!-- Main area -->
+
+    <div class = "preview">
+        <img src="<%= listing.imageUrl %>" target= "_blank" id = "postImg"> <!-- This should be changable by user input from the side bar-->
+        <h2 id = "Title"><%= listing.title %></h2> <!-- This should be changable by user input updated from the side bar-->
+        <h2 id = "Price"><%= listing.price %></h2> <!-- xx Should be changable by user input updated from the side bar-->
+        <h3 id = "Details">Details:</h3>
+        <h3 id = "Condition">Condition XX</h3> <!-- XXX Should be changable by user input updated from the side bar-->
+        <h3 id = "Description"><%= listing.description %></h3> <!-- Should be changable by user input updated from the side bar-->
+
+        <div class="bookmark-container">
+            <a class="saved"><i class="fa-solid fa-bookmark"></i></a>
+            <a><i class="fa-regular fa-bookmark"></i></a>
+          </div>
+
+        <a id="message">Message Seller</a>
+
+        <div class="seller-information">
+            <img src="./images/img_lights.jpg">
+            <h2 id="name">John Smith</h2>
+            <div class="user-rating">
+                <i id="checked" class="fa-solid fa-star"></i>
+                <i id="checked" class="fa-solid fa-star"></i>
+                <i id="checked" class="fa-solid fa-star"></i>
+                <i id="checked" class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>    
+        
+    </div>
+
+    
+      
+
+</body>
+</html>
