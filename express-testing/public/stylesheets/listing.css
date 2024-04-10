@@ -165,7 +165,7 @@ h3 i {
   top: 0px;
   left: 525px;
   background-color: #3c0753;
-  overflow-x: hidden; 
+  overflow: hidden; 
   padding-top: 20px;
   margin-top: 6%;
 
@@ -181,50 +181,65 @@ h3 i {
   top: 0; /* Align the top of the image with the top of the container */
   left: 0; /* Align the left of the image with the left of the container */
   width: 100%; /* Ensure the image fills the container horizontally */
-  height: auto; /* Let the browser calculate the height to maintain aspect ratio */
+  height: 300px; /* Let the browser calculate the height to maintain aspect ratio */
   border-radius: 10px;
+  margin-bottom: 1px;
 }
 
-#Title {
-  position: relative;
-  top: 290px;
-  left: 10px;
-  font-size: 30px;
+.listing-info {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 285px;
+  margin-left: 15px;
+}
+
+.listing-info > * {
+  margin-bottom: -12px ;
+}
+
+#Title {  
+  font-size: 22px;
+  margin-right: 10px;
 }
 
 #Price {
-  position: relative;
-  top: 230px;
-  left: 400px;
-  font-size: 30px;
+  font-size: 22px;  
 }
 
 #Details {
-  position: relative;
-  top: 230px; 
-  left: 10px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #Condition {
-  position: relative;
-  top: 230px;
-  left: 10px;
   word-spacing: 50px;
 }
 
 #Description {
-  position: relative;
-  top: 210px;
-  left: 10px;
+  max-height: 90px;
+  width: 92%;
   font-size: 15px;
   color: lightgray;
   text-wrap: wrap;
+  overflow: auto;
+  padding: 1px 5px;
+  margin-top: 15px;
+}
+
+#Description::-webkit-scrollbar {
+  width: 10px; /* Adjust width of scrollbar */
+  background-color: #030637; /* Set background color of scrollbar track */
+  border-radius: 10px;
+}
+
+#Description::-webkit-scrollbar-thumb {
+  background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+  border-radius: 10px; /* Add rounded corners to thumb */
 }
 
 .bookmark-container {
   position: absolute;
-  bottom: 180px;
+  top: 10px;
   font-size: 30px;
   left: 92%;
 }
