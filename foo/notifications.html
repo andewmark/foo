@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Page</title>
+    <link rel="stylesheet" href="notifications.css">
+    <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Menu bar on the left side -->
+    <div class="sidebar">
+        <h3>Student Marketplace</h3>
+        
+        <a href="./home.html"><i id="icon" class="fa-solid fa-store"></i> Browse All</a>
+        <a class="active"><i id="icon" class="fa-solid fa-bell"></i> Notifications</a>
+        <a href="/chat.html"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+        <a href="/buying.html"><i id="icon" class="fa-solid fa-bag-shopping"></i> Buying <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a href="/selling.html"><i id="icon" class="fa-solid fa-tag"></i> Selling <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a id="new-listing" href="/post.html"><i class="fa-solid fa-plus"></i> Create new post</a>
+    </div>
+
+    <!-- Navigation tabs centered at the top -->
+    <nav>
+        <a class="active" href="#home">Home</a>
+        <a href="/buying.html">Buy</a>
+        <a href="/selling.html">Sell</a>
+        <a href="/chat.html">Messages</a>
+        <a href="./notifications.html">Notifications</a>  
+        
+        <!-- Icon buttons -->
+        <div class="icons">
+            <a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a>
+            <a class="icon" href="#"><img src="images/icons/user.png" alt="Icon 3"></a>
+        </div>
+    </nav>
+
+    <!-- Main Area -->
+    
+    <div class="notif-container">
+        <div class="price-drop" id="notif">
+            <img src="images/defaultImg.png">
+            <h2>Price Drop Alert!</h2>
+            <h3 id="listing-title">Title goes here</h3>
+            <h4 id="listing-new-price">$XX</h4>
+            <h4 id="listing-old-price">$XX</h4>
+        </div>
+
+        <div class="new-message-recieved" id="notif">
+            <img src="images/defaultImg.png">
+            <h2 id="recieved-user">Username</h2>
+            <h3 id="recieved message">LONG LONG LONG LONG LONG LONG </h3>
+        </div>
+
+        <div class="site-announcment-container" id="notif">
+            <h2>Announcment</h2>
+            <h3 id="site-announcment">Site-wide announcment goes here LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG </h3>
+        </div>
+    </div>
