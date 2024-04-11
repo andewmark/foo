@@ -1,5 +1,5 @@
 CREATE TABLE `users` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(255),
   `email` varchar(255),
   `password` varchar(255),
@@ -8,7 +8,7 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `campuses` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `campus_name` varchar(255),
   `address` varchar(255),
   `city` varchar(255),
@@ -22,7 +22,7 @@ CREATE TABLE `campuses` (
 );
 
 CREATE TABLE `listings` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `user_id` integer,
   `title` varchar(255),
   `description` text,
@@ -34,18 +34,18 @@ CREATE TABLE `listings` (
 );
 
 CREATE TABLE `categories` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `category_name` varchar(255)
 );
 
 CREATE TABLE `images` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `listing_id` integer,
   `image_url` varchar(255)
 );
 
 CREATE TABLE `messages` (
-  `id` integer PRIMARY KEY,
+  `id` integer PRIMARY KEY AUTO_INCREMENT,
   `sender_id` integer,
   `receiver_id` integer,
   `listing_id` integer,
