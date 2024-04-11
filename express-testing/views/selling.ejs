@@ -6,6 +6,40 @@
     <title>Selling Page</title>
     <link rel="stylesheet" href="stylesheets/selling.css">
     <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+    <script  type='text/javascript'>
+
+        const fakeListings = {{fakeListings}};
+        // on button "Seller Dashboard" click, present Dashboard
+
+        function switchVisibleDashboard() {
+            //Hide user Listings display Dashboard
+            document.getElementById('listings-page').style.display = 'none';
+            document.getElementById('seller-dashboard').style.display = 'block';
+
+            //Remove and attatch active class appropriately
+            document.getElementById("dashboard").classList.add("active");
+            document.getElementById("listings").classList.remove("active");
+        }
+
+        //on button "Your Listings" click, present user listings
+        function switchVisibleListing() {
+            //Hide Seller-Dashboard
+            document.getElementById('seller-dashboard').style.display = 'none';
+            
+            //check if there are user listings 
+            if (fakeListings.length === 0) {
+                document.getElementById('listing').style.display = 'block'
+                document.getElementById('listings-page').style.display = 'none';
+            } else {
+                document.getElementById('listings-page').style.display = 'grid';
+                document.getElementById('listing').style.display = 'none'
+            }
+
+            //Remove and attatch active class appropriately
+            document.getElementById("listings").classList.add("active");
+            document.getElementById("dashboard").classList.remove("active");
+        }
+    </script>
 </head>
 <body>
 
@@ -13,8 +47,8 @@
     <div class="sidebar">
         <h3><a id="leftarrow" href="/"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Selling</span></h3>
         <a id="new-listing" href="/post"><i class="fa-solid fa-plus"></i> Create new post</a>
-        <a class="active" id="dashboard" href="#dashboard"><i id="icon" class="fa-solid fa-chart-line"></i></i> Seller Dashboard</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
-        <a id="listings" href="#listings"><i id="icon" class="fa-solid fa-tags"></i></i> Your listings</a> <!-- Anything that the user has saved will show up in this page-->
+        <a class="active" id="dashboard" href="#" onclick="switchVisibleDashboard();return false;"><i id="icon" class="fa-solid fa-chart-line"></i></i> Seller Dashboard</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
+        <a id="listings" href=# onclick="switchVisibleListing();return false;"><i id="icon" class="fa-solid fa-tags"></i></i> Your listings</a> <!-- Anything that the user has saved will show up in this page-->
         <a href="/chat"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
     </div>
 
@@ -34,107 +68,76 @@
     </nav>
 
     <!-- Main Page -->
-    <div id="main-containers" class="overview-container">
-        <h2>Overview</h2>
+    <div id="seller-dashboard">
+        <div id="main-containers" class="overview-container">
+            <h2>Overview</h2>
 
-        <a href="#" class="active-listings">
-            <h3>Active Listings:</h3>
-            <h1 id="active-listings">0</h1>
-        </a>
+            <a href="#" class="active-listings">
+                <h3>Active Listings:</h3>
+                <h1 id="active-listings">0</h1>
+            </a>
 
-        <a href="#" class="sold-listings">
-            <h3>Sold:</h3>
-            <h1 id="sold-listings">0</h1>
-        </a>
+            <a href="#" class="sold-listings">
+                <h3>Sold:</h3>
+                <h1 id="sold-listings">0</h1>
+            </a>
 
-        <a href="#" class="drafts">
-            <h3>Drafts:</h3>
-            <h1 id="drafts">0</h1>
-        </a>
-    </div>
+            <a href="#" class="drafts">
+                <h3>Drafts:</h3>
+                <h1 id="drafts">0</h1>
+            </a>
+        </div>
 
-    <div id="main-containers" class="anyaltics-container">
-        <h2>Anyaltics</h2>
-        <a href="#" class="clicks">
-            <h3>Clicks on post:</h3>
-            <h1 id="clicks">0</h1>
-        </a>
+        <div id="main-containers" class="anyaltics-container">
+            <h2>Anyaltics</h2>
+            <a href="#" class="clicks">
+                <h3>Clicks on post:</h3>
+                <h1 id="clicks">0</h1>
+            </a>
 
-        <a href="#" class="saved">
-            <h3>Post saved:</h3>
-            <h1 id="saved">0</h1>
-        </a>
+            <a href="#" class="saved">
+                <h3>Post saved:</h3>
+                <h1 id="saved">0</h1>
+            </a>
 
-        <a href="#" class="shares">
-            <h3>Post shares:</h3>
-            <h1 id="shares">0</h1>
-        </a>
-    </div>
-    
-    <div id="small-containers" class="rating">
-        <h2>Student Reviews</h2>
+            <a href="#" class="shares">
+                <h3>Post shares:</h3>
+                <h1 id="shares">0</h1>
+            </a>
+        </div>
+        
+        <div id="small-containers" class="rating">
+            <h2>Student Reviews</h2>
 
 
-    </div>
+        </div>
 
-    <div id="small-containers" class="chats">
-        <h2>Notifications</h2>
-        <a href="#">
-            <h3>Unread messages:</h3>
-            <h1 id="unread">0</h1>
-        </a>
+        <div id="small-containers" class="chats">
+            <h2>Notifications</h2>
+            <a href="#">
+                <h3>Unread messages:</h3>
+                <h1 id="unread">0</h1>
+            </a>
+        </div>
     </div>
 
     <!-- User Listings -->
     
     <!-- If no listings -->
-    <div class="listing-message">
-        <h4><i class="fa-solid fa-magnifying-glass"></i><br>No Listings Founds<br> Create a Listing!</h4>
+    <div class="listing-message" id="listing-message">
+        <h4><i class="fa-solid fa-magnifying-glass"></i><br>No Listings Found<br> Create a Listing!</h4>
         <a id="new-listing" href="/post.html"><i class="fa-solid fa-plus"></i> Create new post</a>
     </div>
 
     <!-- If there are listings -->
-    <div class="listings">
-        <div class="listing-container" id="active">
+    <div class="listings" id="listings-page">
+        <div class="listing-container">
             <img src="images/defaultImg.png">
             <div class="info">
                 <h2 id="listing-title">Title goes here</h2>
                 <h3 id="listing-price">$XX</h3>
                 <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
                 <h3 id="status">Status: Active</h3>
-                <a id="edit" href="#">edit post</a>
-            </div>
-        </div>
-
-        <div class="listing-container" id="sold">
-            <img src="images/defaultImg.png">
-            <div class="info">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
-                <h3 id="status">Status: Sold</h3>
-                <a id="edit" href="#">edit post</a>
-            </div>
-        </div>
-
-        <div class="listing-container" id="expired">
-            <img src="images/defaultImg.png">
-            <div class="info">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
-                <h3 id="status">Status: Expired</h3>
-                <a id="edit" href="#">edit post</a>
-            </div>
-        </div>
-
-        <div class="listing-container" id="in-process">
-            <img src="images/defaultImg.png">
-            <div class="info">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
-                <h3 id="status">Status: In-Process</h3>
                 <a id="edit" href="#">edit post</a>
             </div>
         </div>

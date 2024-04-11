@@ -15,7 +15,7 @@ const fakeListings = [
   {
     id: 2,
     title: 'Used Bicycle - Great Condition',
-    price: '$1000.00',
+    price: '$1,000.00',
     condition: 'Good',
     description: 'Well-maintained bicycle, perfect for students.',
     imageUrl: '/images/img_forest.jpg',
@@ -63,7 +63,8 @@ router.get('/profile', function(req, res, next) {
 
 // Selling Page
 router.get('/selling', function(req, res, next) {
-  res.render('selling', { title: 'Student U Marketplace: Listing' });
+  const hasListings = fakeListings.length > 0;
+  res.render('selling', { hasListings});
 });
 
 // SignUp Page

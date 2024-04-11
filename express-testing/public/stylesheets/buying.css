@@ -169,7 +169,7 @@ h4 i {
 .recent-container img {
     margin: 15px;
     height: 125px;
-    object-fit: cover;
+    object-fit: cover;  
     border-radius: 10px;
 }
 
@@ -187,28 +187,23 @@ h4 i {
 }
 
 .recent-container:hover {
-    background-color: white;
-    color: #000;
     transition: 0.5s;
     transform: scale(0.98);
     cursor: pointer;
-    h3 {
-        color: #000;
-    }
 }
 
 
 /*saved main page */
 .saved {
-    position: relative;
+    position: absolute;
     left: 300px;
     display: grid;
     margin: 20px;
-    width: 910px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     grid-gap: 25px;
     grid-row-gap: 25px;
+    display: none;
 }
 
 img:hover {

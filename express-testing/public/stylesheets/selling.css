@@ -273,6 +273,7 @@ h3 i {
     margin-left: 285px;
     margin-top: 250px;
     text-align: center;
+    display: none;
 }
 
 .listing-message h4 {
@@ -308,15 +309,15 @@ h3 i {
 /* if there are listings present */
 
 .listings {
-    position: relative;
+    position: absolute;
     left: 300px;
     display: grid;
     margin: 20px;
-    width: 910px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     grid-gap: 25px;
-    grid-row-gap: 25px;
+    grid-row-gap: 25px; 
+    display: none;
 }
 
 .listing-container {
