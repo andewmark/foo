@@ -1,0 +1,2 @@
+g++ -std=c++17 -arch arm64 -stdlib=libc++ -o output_file main.cpp -I "/usr/local/mysql-connector-c++/include" -L "/usr/local/mysql-connector-c++/lib64"  -lmysqlcppconn-static -lssl -lcrypto -lresolv
+

@@ -1,0 +1,13 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -arch arm64 -stdlib=libc++
+INCLUDES = -I"/usr/local/mysql-connector-c++/include"
+LIBS = -L"/usr/local/mysql-connector-c++/lib64" -lmysqlcppconn-static -lssl -lcrypto -lresolv
+
+output_file: main.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f output_file
+
