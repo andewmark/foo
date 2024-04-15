@@ -8,41 +8,37 @@
     <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
     <script  type='text/javascript'>
 
-        const fakeListings = {{fakeListings}};
+        
         // on button "Seller Dashboard" click, present Dashboard
 
         function switchVisibleDashboard() {
-            //Hide user Listings display Dashboard
-            document.getElementById('listings-page').style.display = 'none';
-            document.getElementById('seller-dashboard').style.display = 'block';
-
             //Remove and attatch active class appropriately
             document.getElementById("dashboard").classList.add("active");
             document.getElementById("listings").classList.remove("active");
-        }
 
+            //Hide user Listings display Dashboard
+            document.getElementById('seller-dashboard').style.display = 'block';
+            document.getElementById('listings-page').style.display = 'none';
+            
+
+        }
+        
         //on button "Your Listings" click, present user listings
         function switchVisibleListing() {
-            //Hide Seller-Dashboard
-            document.getElementById('seller-dashboard').style.display = 'none';
-            
-            //check if there are user listings 
-            if (fakeListings.length === 0) {
-                document.getElementById('listing').style.display = 'block'
-                document.getElementById('listings-page').style.display = 'none';
-            } else {
-                document.getElementById('listings-page').style.display = 'grid';
-                document.getElementById('listing').style.display = 'none'
-            }
 
             //Remove and attatch active class appropriately
             document.getElementById("listings").classList.add("active");
             document.getElementById("dashboard").classList.remove("active");
+
+            //Hide Seller-Dashboard
+            document.getElementById('seller-dashboard').style.display = 'none';
+            document.getElementById('listings-page').style.display = 'grid';
+
         }
     </script>
 </head>
 <body>
-
+    
     <!-- Menu bar on the left side -->
     <div class="sidebar">
         <h3><a id="leftarrow" href="/"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Selling</span></h3>
@@ -122,25 +118,29 @@
     </div>
 
     <!-- User Listings -->
-    
-    <!-- If no listings -->
-    <div class="listing-message" id="listing-message">
-        <h4><i class="fa-solid fa-magnifying-glass"></i><br>No Listings Found<br> Create a Listing!</h4>
-        <a id="new-listing" href="/post.html"><i class="fa-solid fa-plus"></i> Create new post</a>
-    </div>
-
-    <!-- If there are listings -->
-    <div class="listings" id="listings-page">
-        <div class="listing-container">
-            <img src="images/defaultImg.png">
-            <div class="info">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-                <p id="description">This is my description of this lisitng and I hope it doesn't take too much space</p>
+    <div class="listings-page" id="listings-page">
+    <% if (fakeListings.length > 0) { %>
+        <div class="listings">
+          <% for (const listing of fakeListings) { %>
+            <div class="listing-container">
+              <img src="<%= listing.imageUrl %>">
+              <div class="info">
+                <h2 id="listing-title"><%= listing.title %></h2>
+                <h3 id="listing-price"><%= listing.price %></h3>
+                <p id="description"><%= listing.description %></p>
                 <h3 id="status">Status: Active</h3>
                 <a id="edit" href="#">edit post</a>
+              </div>
             </div>
+          <% } %>
         </div>
+      
+      <% } else { %>
+        <div class="listing-message" id="listing-message">
+          <h4><i class="fa-solid fa-magnifying-glass"></i><br>No Listings Found<br> Create a Listing!</h4>
+          <a id="new-listing" href="/post.html"><i class="fa-solid fa-plus"></i> Create new post</a>
+        </div>
+      <% } %>
     </div>
     
 </body>

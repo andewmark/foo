@@ -269,11 +269,14 @@ h3 i {
 
 /* Listings */
 
+#listings-page {
+    display: none;
+}
+
 .listing-message {
     margin-left: 285px;
     margin-top: 250px;
     text-align: center;
-    display: none;
 }
 
 .listing-message h4 {
@@ -317,7 +320,6 @@ h3 i {
     grid-auto-rows: minmax(auto, 1fr);
     grid-gap: 25px;
     grid-row-gap: 25px; 
-    display: none;
 }
 
 .listing-container {
@@ -338,14 +340,17 @@ h3 i {
 .info {
     margin-left: 5px;
     position: relative;
-    bottom: 20px;
+    bottom: 25px;
 }
 
 .listing-container #listing-title {
-    width: 16ch;
+    width: 28ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-top: 21px;
+    margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .listing-container h3 {
@@ -357,6 +362,19 @@ h3 i {
     position: relative;
     bottom: 30px;
     font-size: 13px;
+    min-height: 65px;
+    max-height: 65px;
+    width: 92%;
+    font-size: 15px;
+    color: rgb(182, 182, 182);
+    text-wrap: wrap;
+    margin-top: 15px;
+    overflow-y: auto;
+}
+
+#status {
+    position: relative;
+    bottom: 40px;
 }
 
 #edit {
@@ -365,13 +383,24 @@ h3 i {
     background-color: #b02584;
     padding: 10px 40px;
     border-radius: 10px;
-    position: relative;
-    bottom: 23px;
+    position: absolute;
+    bottom: 0;
     transition: transform 0.25s ease;
 }
 
 #edit:hover {
     background-color: #910a67;
 }
+
+#description::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #030637; /* Set background color of scrollbar track */
+    border-radius: 10px;
+  }
+  
+  #description::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
 
 

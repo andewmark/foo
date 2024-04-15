@@ -9,17 +9,23 @@
 
     <script>
         function switchVisibleSaved() {
-            document.getElementById('recent').style.display = 'none';
-            document.getElementById('saved').style.display = 'block';
             document.getElementById("savedBar").classList.add("active");
             document.getElementById("recentBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'none';
+            document.getElementById('saved').style.display = 'grid';
+            document.getElementById('saved-message').style.display = 'block';
+            
         }
 
         function switchVisibleRecent() {
-            document.getElementById('saved').style.display = 'none';
-            document.getElementById('recent').style.display = 'block';
             document.getElementById("recentBar").classList.add("active");
             document.getElementById("savedBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'block';
+            document.getElementById('saved').style.display = 'none';
+            document.getElementById('saved-message').style.display = 'none';
+            
         }
     </script>
 </head>
@@ -51,6 +57,7 @@
     <!-- Gallery content will go here -->
 
     <div class="recent" id="recent">
+        <% if (fakeListings.length > 0) { %>
         <div class="recent-container">
             <div class="recent-info">
                 <img src="images/defaultImg.png">
@@ -58,9 +65,15 @@
                 <h3 id="listing-price">$XX</h3>
             </div>
         </div>
+        <% } else { %>
+        <div class="recent-message" id="recent-message">
+            <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
+        </div>
+        <% } %>
     </div>
 
     <div class = "saved" id="saved">
+        <% if (fakeListings.length > 0) { %>
         <div class="post-container">
             <a href="#"><img id="pic1" src="images/img_5terre.jpg"></a>
             <div class="item-details">
@@ -70,14 +83,12 @@
             </div>
         </div>
     </div>
-
-    <div class="recent-message">
-        <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
-    </div>
-
-    <div class="saved-message">
-        <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
-    </div>
+    <% } else { %>
+        <div class="saved-message" id="saved-message">
+            <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
+        </div>
+        <% } %>
+    
     
 </body>
 </html>

@@ -144,6 +144,8 @@ h4 {
     margin-left: 285px;
     margin-top: 250px;
     color: rgb(181, 181, 181);
+    height: 200px;
+    width: 500px;
 }
 
 h4 i {
@@ -246,5 +248,17 @@ img:hover {
     font-size: 14px;
     position: relative;
     bottom: 30px;
+}
+
+.recent-message {
+    position: absolute;
+    left: 210px;
+    top: 77px;
+}
+
+.saved-message {
+    position: relative;
+    right: 100px;
+    display: none;
 }
 

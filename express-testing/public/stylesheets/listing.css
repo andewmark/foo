@@ -262,6 +262,17 @@ h3 i {
   left: 92%;
 }
 
+#solid {
+  text-decoration: none;
+  color: white;
+  display: none;
+}
+
+#regular {
+  text-decoration: none;
+  color: white; 
+}
+
 #message {
   position: absolute;
   bottom: 15px;
