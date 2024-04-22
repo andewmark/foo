@@ -4,7 +4,7 @@ var router = express.Router();
 const fakeListings = [
   {
     id: 1,
-    title: 'Sample Textbook - Calculus',
+    title: 'Calculus Textbok ', // max 25 characters
     price: '$25.00',
     description: 'Used Calculus textbook in excellent condition. LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG',
     imageUrl: '/images/img_lights.jpg', // Assuming an image path in your 'public' directory
@@ -14,7 +14,7 @@ const fakeListings = [
   {
     id: 2,
     title: 'Used Bicycle - Great Condition',
-    price: '$1000.00',
+    price: '$1,000.00',
     condition: 'Good',
     description: 'Well-maintained bicycle, perfect for students.',
     imageUrl: '/images/img_forest.jpg',
@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
 
 // Buying Page
 router.get('/buying', function(req, res, next) {
-  res.render('buying', { title: 'Student U Marketplace: Buying' });
+  res.render('buying', { fakeListings: fakeListings });
 });
 
 // Messaging Page
@@ -62,7 +62,7 @@ router.get('/profile', function(req, res, next) {
 
 // Selling Page
 router.get('/selling', function(req, res, next) {
-  res.render('selling', { title: 'Student U Marketplace: Listing' });
+  res.render('selling', { fakeListings: fakeListings});
 });
 
 // SignUp Page

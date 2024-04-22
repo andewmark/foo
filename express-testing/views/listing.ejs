@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="/stylesheets/listing.css">
     <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
     <title>Document</title>
+    <script>
+        document.getElementById('solid').style.display = 'none';
+
+        function save() {
+            if (document.getElementById('solid').style.display === 'none') {
+                document.getElementById('solid').style.display = 'block';
+                document.getElementById('regular').style.display = 'none';
+            } else {
+                document.getElementById('regular').style.display = 'block';
+                document.getElementById('solid').style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     
@@ -50,9 +63,12 @@
         </div>
 
         <div class="bookmark-container">
-            <a class="saved"><i class="fa-solid fa-bookmark"></i></a>
-            <a><i class="fa-regular fa-bookmark"></i></a>
+            <a class="solid" id="solid" href="#" onclick="save();return false;"> <i class="fa-solid fa-bookmark"></i>
+            </a>
+            <a class="regular" id="regular" href="#" onclick="save();return false;"> <i class="fa-regular fa-bookmark"></i>
+            </a>
           </div>
+        
 
         <a id="message">Message Seller</a>
 

@@ -187,11 +187,13 @@ h3 i {
 }
 
 .listing-info {
-  width: 100%;
+  width: 97.2%;
   height: auto;
   position: absolute;
-  top: 285px;
+  top: 300px;
   margin-left: 15px;
+  max-height: 800px;
+  overflow-y: scroll;
 }
 
 .listing-info > * {
@@ -201,6 +203,7 @@ h3 i {
 #Title {  
   font-size: 22px;
   margin-right: 10px;
+  position: relative;
 }
 
 #Price {
@@ -238,17 +241,16 @@ h3 i {
   font-size: 15px;
   color: rgb(182, 182, 182);
   text-wrap: wrap;
-  overflow: auto; 
   margin-top: 15px;
 }
 
-#Description::-webkit-scrollbar {
+.listing-info::-webkit-scrollbar {
   width: 10px; /* Adjust width of scrollbar */
   background-color: #030637; /* Set background color of scrollbar track */
   border-radius: 10px;
 }
 
-#Description::-webkit-scrollbar-thumb {
+.listing-info::-webkit-scrollbar-thumb {
   background-color: #7c7c7c; /* Set background color of scrollbar thumb */
   border-radius: 10px; /* Add rounded corners to thumb */
 }
@@ -258,6 +260,17 @@ h3 i {
   top: 10px;
   font-size: 30px;
   left: 92%;
+}
+
+#solid {
+  text-decoration: none;
+  color: white;
+  display: none;
+}
+
+#regular {
+  text-decoration: none;
+  color: white; 
 }
 
 #message {
