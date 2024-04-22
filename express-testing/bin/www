@@ -12,7 +12,8 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5000');
+
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -48,6 +49,54 @@ function normalizePort(val) {
 
   return false;
 }
+
+
+// Websocket server
+// WebSocket server
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ server });
+
+
+// Handle WebSocket connections
+wss.on('connection', (ws) => {
+    console.log('New WebSocket connection!!!!');
+
+    // Send a request to the C++ application to get full table of users
+    const request = JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM users;' } });
+    ws.send(request);
+
+    // Handle incoming messages
+    ws.on('message', (message) => {
+      const parsedMessage = JSON.parse(message);
+          
+      // Check if the data property exists in the message
+      if (parsedMessage && parsedMessage.data) {
+          // `data` should be an array
+          const userData = JSON.parse(parsedMessage.data);
+          // Validate that `userData` is an array
+          console.log(userData);
+          console.log(typeof(userData));
+          // if (Array.isArray(userData)) {
+          //     // Iterate over each user object and print it
+          //     // userData.forEach((user) => {
+          //     console.log(userData);
+          //     console.log(typeof(userData));
+          //     // });
+          } 
+          // else {
+          //     console.error('Expected an array of users, but received:', userData);
+              
+          // }
+      else {
+          console.error('Missing data property in the received message:', parsedMessage);
+      }
+}); 
+        
+    ws.on('close', () => {
+        console.log('WebSocket connection closed');
+    });
+});
 
 /**
  * Event listener for HTTP server "error" event.
