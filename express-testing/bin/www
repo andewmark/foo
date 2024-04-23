@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('express-testing:server');
 var http = require('http');
 
+
 /**
  * Get port from environment and store in Express.
  */
@@ -52,51 +53,61 @@ function normalizePort(val) {
 
 
 // Websocket server
-// WebSocket server
+var userData="";
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({server});
+
+
+/**
+ * Initialize WebSocket connections and handlers
+ */
+function initializeWebSocket() {
+    wss.on('connection', (ws) => {
+        console.log('New WebSocket connection!');
+
+        // Send requests to the C++ application
+        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM listings;' } }));
+        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM users;' } }));
+        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM campuses;' } }));
+
+        // Handle incoming messages
+        ws.on('message', (message) => {
+            try {
+                const parsedMessage = JSON.parse(message);
+                
+                if (parsedMessage.data) {
+                    // `data` should be an array
+                    const userData = JSON.parse(parsedMessage.data);
+                    
+                    // Log the parsed user data and its type
+                    console.log(userData);
+                    console.log(typeof userData);
+                    return userData;
+                } else {
+                    console.error('Received message without data property:', parsedMessage);
+                }
+            } catch (error) {
+                console.error('Error parsing message:', error);
+            }
+            
+        });
+        
+
+        // Handle WebSocket connection close
+        ws.on('close', () => {
+            console.log('WebSocket connection closed');
+        });
+    });
+}
+
+// Export the initialization function for use in other modules
+module.exports = initializeWebSocket;
+
 
 
 // Handle WebSocket connections
-wss.on('connection', (ws) => {
-    console.log('New WebSocket connection!!!!');
 
-    // Send a request to the C++ application to get full table of users
-    const request = JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM users;' } });
-    ws.send(request);
-
-    // Handle incoming messages
-    ws.on('message', (message) => {
-      const parsedMessage = JSON.parse(message);
-          
-      // Check if the data property exists in the message
-      if (parsedMessage && parsedMessage.data) {
-          // `data` should be an array
-          const userData = JSON.parse(parsedMessage.data);
-          // Validate that `userData` is an array
-          console.log(userData);
-          console.log(typeof(userData));
-          // if (Array.isArray(userData)) {
-          //     // Iterate over each user object and print it
-          //     // userData.forEach((user) => {
-          //     console.log(userData);
-          //     console.log(typeof(userData));
-          //     // });
-          } 
-          // else {
-          //     console.error('Expected an array of users, but received:', userData);
-              
-          // }
-      else {
-          console.error('Missing data property in the received message:', parsedMessage);
-      }
-}); 
-        
-    ws.on('close', () => {
-        console.log('WebSocket connection closed');
-    });
-});
 
 /**
  * Event listener for HTTP server "error" event.
@@ -137,3 +148,4 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+

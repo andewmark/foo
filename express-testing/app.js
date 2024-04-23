@@ -4,14 +4,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const initializeWebSocket = require('./bin/www');
 
 var indexRouter = require('./routes/index');
 
 var app = express();
 
+let ws =module.initializeWebSocket;
+console.log(ws);
+
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
@@ -38,5 +41,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('404');
 });
+
+
+
 
 module.exports = app;
