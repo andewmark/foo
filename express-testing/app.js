@@ -4,14 +4,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const initializeWebSocket = require('./bin/www');
+
+
+// var wss = require('./bin/www');
+
+const websocketService = require('./bin/websocket');
+
 
 var indexRouter = require('./routes/index');
 
 var app = express();
 
-let ws =module.initializeWebSocket;
-console.log(ws);
+
+
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
@@ -43,6 +48,18 @@ app.use(function(err, req, res, next) {
 });
 
 
-
+// EVENT THAT CONNECTION IS FORMED
+websocketService.on('connected', () => {
+  // Now the WebSocket connection is established, you can safely call sendRequests
+  const queries = [
+      'SELECT * FROM listings;',
+      'SELECT * FROM users;',
+      'SELECT * FROM campuses WHERE campus_name = "Huda\'s University";'
+  ];
+  websocketService.sendRequests(queries);
+});
 
 module.exports = app;
+
+
+

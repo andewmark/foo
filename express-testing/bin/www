@@ -8,10 +8,12 @@ var app = require('../app');
 var debug = require('debug')('express-testing:server');
 var http = require('http');
 
+const websocketService = require('./websocket');
 
 /**
  * Get port from environment and store in Express.
  */
+var server = http.createServer(app);
 
 
 var port = normalizePort(process.env.PORT || '3000');
@@ -20,12 +22,23 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+websocketService.createWebSocketServer(server);
 
-var server = http.createServer(app);
+
+// wss.on('connection', (ws) => {
+//   // Call initializeWebSocketConnection to handle the connection setup
+//   initializeWebSocketConnection(ws);
+
+//   // Call sendRequests to send the queries
+//   sendRequests(ws, "SELECT * FROM listings;");
+// });
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+
 
 server.listen(port);
 server.on('error', onError);
@@ -51,67 +64,6 @@ function normalizePort(val) {
   return false;
 }
 
-
-// Websocket server
-var userData="";
-const WebSocket = require('ws');
-
-const wss = new WebSocket.Server({server});
-
-
-/**
- * Initialize WebSocket connections and handlers
- */
-function initializeWebSocket() {
-    wss.on('connection', (ws) => {
-        console.log('New WebSocket connection!');
-
-        // Send requests to the C++ application
-        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM listings;' } }));
-        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM users;' } }));
-        ws.send(JSON.stringify({ action: 'retrieve_data', params: { key: 'SELECT * FROM campuses;' } }));
-
-        // Handle incoming messages
-        ws.on('message', (message) => {
-            try {
-                const parsedMessage = JSON.parse(message);
-                
-                if (parsedMessage.data) {
-                    // `data` should be an array
-                    const userData = JSON.parse(parsedMessage.data);
-                    
-                    // Log the parsed user data and its type
-                    console.log(userData);
-                    console.log(typeof userData);
-                    return userData;
-                } else {
-                    console.error('Received message without data property:', parsedMessage);
-                }
-            } catch (error) {
-                console.error('Error parsing message:', error);
-            }
-            
-        });
-        
-
-        // Handle WebSocket connection close
-        ws.on('close', () => {
-            console.log('WebSocket connection closed');
-        });
-    });
-}
-
-// Export the initialization function for use in other modules
-module.exports = initializeWebSocket;
-
-
-
-// Handle WebSocket connections
-
-
-/**
- * Event listener for HTTP server "error" event.
- */
 
 function onError(error) {
   if (error.syscall !== 'listen') {
