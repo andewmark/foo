@@ -144,6 +144,8 @@ h4 {
     margin-left: 285px;
     margin-top: 250px;
     color: rgb(181, 181, 181);
+    height: 200px;
+    width: 500px;
 }
 
 h4 i {
@@ -169,7 +171,7 @@ h4 i {
 .recent-container img {
     margin: 15px;
     height: 125px;
-    object-fit: cover;
+    object-fit: cover;  
     border-radius: 10px;
 }
 
@@ -187,28 +189,23 @@ h4 i {
 }
 
 .recent-container:hover {
-    background-color: white;
-    color: #000;
     transition: 0.5s;
     transform: scale(0.98);
     cursor: pointer;
-    h3 {
-        color: #000;
-    }
 }
 
 
 /*saved main page */
 .saved {
-    position: relative;
+    position: absolute;
     left: 300px;
     display: grid;
     margin: 20px;
-    width: 910px;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(auto, 1fr);
     grid-gap: 25px;
     grid-row-gap: 25px;
+    display: none;
 }
 
 img:hover {
@@ -251,5 +248,17 @@ img:hover {
     font-size: 14px;
     position: relative;
     bottom: 30px;
+}
+
+.recent-message {
+    position: absolute;
+    left: 210px;
+    top: 77px;
+}
+
+.saved-message {
+    position: relative;
+    right: 100px;
+    display: none;
 }
 

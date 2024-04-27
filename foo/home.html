@@ -44,42 +44,17 @@
     </nav>
 
     <div class = "gallery">
+
+        <% for(let i=0; i < fakeListings.length; i++) { %> <!-- Creating for loop for each listing -->
         <div class="post-container">
-            <a href="#"><img id="pic1" src="images/img_5terre.jpg"></a>
+            <a href="/listing/<%= fakeListings[i].id %>"><img id="pic1" src="<%= fakeListings[i].imageUrl %>"></a>
             <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
+                <p id="Price">$<%= fakeListings[i].price %></p> <!--XX changes Based on DB-->
+                <p id="Title"><%= fakeListings[i].title %></p> <!-- Changes Based on DB-->
+                <p id="Location"><%= fakeListings[i].resident_hall %></p> <!-- Changes Based on DB-->
             </div>
         </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic2" src="images/img_forest.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic3" src="images/img_lights.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic4" src="images/img_mountains.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
+        <% } %>
     </div>
 
 </body>

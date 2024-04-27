@@ -6,15 +6,44 @@
     <title>Buying Page</title>
     <link rel="stylesheet" href="buying.css">
     <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+
+    <script>
+        function switchVisibleSaved() {
+            document.getElementById("savedBar").classList.add("active");
+            document.getElementById("recentBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'none';
+            document.getElementById('saved').style.display = 'grid';
+            document.getElementById('saved-message').style.display = 'block';
+            
+        }
+
+        function switchVisibleRecent() {
+            document.getElementById("recentBar").classList.add("active");
+            document.getElementById("savedBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'block';
+            document.getElementById('saved').style.display = 'none';
+            document.getElementById('saved-message').style.display = 'none';
+            
+        }
+    </script>
 </head>
 <body>
 
     <!-- Menu bar on the left side -->
     <div class="sidebar">
+<<<<<<< HEAD:foo/buying.html
         <h3><a id="leftarrow" href="/home.html"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Buying</span></h3>
         <a class="active" id="recent" href="#recent"><i id= "icon" class="fa-solid fa-clock"></i> Recent Activity</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
         <a id="saved" href="#saved"><i id="icon" class="fa-solid fa-bookmark"></i> Saved</a>
         <a href="/chat.html"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+=======
+        <h3><a id="leftarrow" href="/"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Buying</span></h3>
+        <a class="active" id="recentBar" href="#" onclick="switchVisibleRecent();return false;"><i id= "icon" class="fa-solid fa-clock"></i> Recent Activity</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
+        <a id="savedBar" href="#" onclick="switchVisibleSaved();return false;"><i id="icon" class="fa-solid fa-bookmark"></i> Saved</a>
+        <a href="/chat"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+>>>>>>> login/signin:express-testing/views/buying.ejs
     </div>
 
     <!-- Navigation tabs centered at the top -->
@@ -34,7 +63,8 @@
 
     <!-- Gallery content will go here -->
 
-    <div class="recent">
+    <div class="recent" id="recent">
+        <% if (fakeListings.length > 0) { %>
         <div class="recent-container">
             <div class="recent-info">
                 <img src="images/defaultImg.png">
@@ -42,25 +72,15 @@
                 <h3 id="listing-price">$XX</h3>
             </div>
         </div>
-
-        <div class="recent-container">
-            <div class="recent-info">
-                <img src="images/defaultImg.png">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-            </div>
+        <% } else { %>
+        <div class="recent-message" id="recent-message">
+            <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
         </div>
-
-        <div class="recent-container">
-            <div class="recent-info">
-                <img src="images/defaultImg.png">
-                <h2 id="listing-title">Title goes here</h2>
-                <h3 id="listing-price">$XX</h3>
-            </div>
-        </div>
+        <% } %>
     </div>
 
-    <div class = "saved">
+    <div class = "saved" id="saved">
+        <% if (fakeListings.length > 0) { %>
         <div class="post-container">
             <a href="#"><img id="pic1" src="images/img_5terre.jpg"></a>
             <div class="item-details">
@@ -69,43 +89,13 @@
                 <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
             </div>
         </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic2" src="images/img_forest.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic3" src="images/img_lights.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
-        <div class="post-container">
-            <a href="#"><img id="pic4" src="images/img_mountains.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
-
     </div>
-
-    <div class="recent-message">
-        <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
-    </div>
-
-    <div class="saved-message">
-        <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
-    </div>
+    <% } else { %>
+        <div class="saved-message" id="saved-message">
+            <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
+        </div>
+        <% } %>
+    
     
 </body>
 </html>

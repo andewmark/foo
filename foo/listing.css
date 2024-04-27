@@ -185,11 +185,32 @@ h3 i {
   border-radius: 10px;
 }
 
+<<<<<<< HEAD:foo/listing.css
 #Title {
   position: relative;
   top: 290px;
   left: 10px;
   font-size: 30px;
+=======
+.listing-info {
+  width: 97.2%;
+  height: auto;
+  position: absolute;
+  top: 300px;
+  margin-left: 15px;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.listing-info > * {
+  margin-bottom: -12px ;
+}
+
+#Title {  
+  font-size: 22px;
+  margin-right: 10px;
+  position: relative;
+>>>>>>> login/signin:express-testing/public/stylesheets/listing.css
 }
 
 #Price {
@@ -207,6 +228,7 @@ h3 i {
 }
 
 #Condition {
+<<<<<<< HEAD:foo/listing.css
   position: relative;
   top: 230px;
   left: 10px;
@@ -217,9 +239,49 @@ h3 i {
   position: relative;
   top: 210px;
   left: 10px;
+=======
+  word-spacing: 25px;
+  font-size: 18px;
+}
+
+#Location {
+  word-spacing: 25px;
+  font-size: 16px;
+}
+
+#Location span{
+  word-spacing: 0px;
+  font-size: 16px;
+}
+
+#Location span i{
+  position: static;
+  font-size: 18px;
+  color: #b02584;
+}
+
+#Description {
+  max-height: 65px;
+  width: 92%;
+>>>>>>> login/signin:express-testing/public/stylesheets/listing.css
   font-size: 15px;
-  color: lightgray;
+  color: rgb(182, 182, 182);
   text-wrap: wrap;
+<<<<<<< HEAD:foo/listing.css
+=======
+  margin-top: 15px;
+}
+
+.listing-info::-webkit-scrollbar {
+  width: 10px; /* Adjust width of scrollbar */
+  background-color: #030637; /* Set background color of scrollbar track */
+  border-radius: 10px;
+}
+
+.listing-info::-webkit-scrollbar-thumb {
+  background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+  border-radius: 10px; /* Add rounded corners to thumb */
+>>>>>>> login/signin:express-testing/public/stylesheets/listing.css
 }
 
 .bookmark-container {
@@ -227,6 +289,17 @@ h3 i {
   bottom: 180px;
   font-size: 30px;
   left: 92%;
+}
+
+#solid {
+  text-decoration: none;
+  color: white;
+  display: none;
+}
+
+#regular {
+  text-decoration: none;
+  color: white; 
 }
 
 #message {
@@ -273,5 +346,5 @@ h3 i {
   object-fit: cover;
   position: fixed;
   left: 860px;
-  top: 600px;
+  top: 700px;
 }
