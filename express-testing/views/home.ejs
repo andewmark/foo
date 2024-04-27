@@ -49,9 +49,9 @@
         <div class="post-container">
             <a href="/listing/<%= fakeListings[i].id %>"><img id="pic1" src="<%= fakeListings[i].imageUrl %>"></a>
             <div class="item-details">
-                <p id="Price"><%= fakeListings[i].price %></p> <!--XX changes Based on DB-->
+                <p id="Price">$<%= fakeListings[i].price %></p> <!--XX changes Based on DB-->
                 <p id="Title"><%= fakeListings[i].title %></p> <!-- Changes Based on DB-->
-                <p id="Location"><%= fakeListings[i].location %></p> <!-- Changes Based on DB-->
+                <p id="Location"><%= fakeListings[i].resident_hall %></p> <!-- Changes Based on DB-->
             </div>
         </div>
         <% } %>

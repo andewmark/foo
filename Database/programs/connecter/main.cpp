@@ -109,10 +109,31 @@ string Database::executeQuery(const string& query) {
                         case sql::DataType::DOUBLE: // FLOAT or DOUBLE
                             row[columnName] = res->getDouble(i);
                             break;
+                        case sql::DataType::DECIMAL: // DECIMAL
+                            row[columnName] = res->getDouble(i); // Use getDouble for DECIMAL as well
+                            break;
                         case sql::DataType::VARCHAR: // STRING
                             row[columnName] = res->getString(i);
                             break;
-                        // Add handling for other types as needed
+                        // case sql::DataType::TEXT: // TEXT
+                        //     row[columnName] = res->getString(i);
+                        //     break;
+                        // case sql::DataType::BOOLEAN: // BOOLEAN
+                        //     row[columnName] = res->getBoolean(i);
+                        //     break;
+                        case sql::DataType::BIGINT: // BIGINT
+                            row[columnName] = res->getInt64(i);
+                            break;
+                        case sql::DataType::SMALLINT: // SMALLINT
+                            row[columnName] = res->getInt(i);
+                            break;
+                        case sql::DataType::TINYINT: // TINYINT
+                            row[columnName] = res->getInt(i);
+                            break;
+                        // case sql::DataType::BINARY: // BINARY
+                        default:
+                            cout << "Unhandled data type: " << columnType << endl;
+                            break;
                     }
                 }
 

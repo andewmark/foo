@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const websocketService = require('../bin/websocket');
 
 const fakeListings = [
   {
@@ -22,77 +22,111 @@ const fakeListings = [
     location: 'Burns Hall',
     // ... other listing details
   },
-];
+  ];
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', {fakeListings: fakeListings});
+//let User_listings ="SELECT * from listings WHERE user_id = 6;";
+let User_listings = "SELECT listings.*, users.username, users.rating FROM listings JOIN users ON listings.user_id = users.id";
+
+websocketService.on('connected', () => {
+
+  websocketService.sendRequests(User_listings);
+
+  websocketService.on('dataReceived', (Data) => {
+    console.log(Data);
+
+    /* GET home page. */
+  router.get('/', function(req, res, next) {
+    res.render('home', {fakeListings: Data});
+  });
+
+  // Listing Page
+  router.get('/listing', function(req, res, next) {
+    res.render('listing');
+  });
+  
+  
+  router.get('/listing/:listingId', (req, res) => {
+    const listingId = parseInt(req.params.listingId); // Convert listingId to a number
+  
+    const foundListing = Data.find(listing => listing.id === listingId);
+  
+    
+    // Handle case where listing not found
+    if (!foundListing) {
+      return res.status(404).render('404');
+    }
+  
+    console.log("Found Listing:", foundListing); // Log for verification
+  
+  
+    // Render the listing page template with retrieved data
+    res.render('listing', { listing: foundListing });
+  });
+
+  });
+
+
 });
+
+
+
+
+
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+// res.render('home', {fakeListings: fakeListings});
+// });
 
 // Buying Page
 router.get('/buying', function(req, res, next) {
-  res.render('buying', { fakeListings: fakeListings });
+res.render('buying', { fakeListings: fakeListings });
 });
 
 // Messaging Page
 router.get('/chat', function(req, res, next) {
-  res.render('chat', { title: 'Student U Marketplace: Messages' });
+res.render('chat', { title: 'Student U Marketplace: Messages' });
 });
 
 // login Page
 router.get('/login', function(req, res, next) {
-  res.render('LogIn', { title: 'Student U Marketplace: Login' });
+res.render('LogIn', { title: 'Student U Marketplace: Login' });
 });
 
 
 // Notifications Page
 router.get('/notifications', function(req, res, next) {
-  res.render('notifications', { title: 'Student U Marketplace: Listing' });
+res.render('notifications', { title: 'Student U Marketplace: Listing' });
 });
 
 // Posting Page
 router.get('/post', function(req, res, next) {
-  res.render('post', { title: 'Student U Marketplace: Listing' });
+res.render('post', { title: 'Student U Marketplace: Listing' });
 });
 
 
 // Profile Page
 router.get('/profile', function(req, res, next) {
-  res.render('profile', { title: 'Student U Marketplace: Listing' });
+res.render('profile', { title: 'Student U Marketplace: Listing' });
 });
 
 // Selling Page
 router.get('/selling', function(req, res, next) {
-  res.render('selling', { fakeListings: fakeListings});
+res.render('selling', { fakeListings: fakeListings});
 });
 
 // SignUp Page
 router.get('/Signup', function(req, res, next) {
-  res.render('SignUp', { title: 'Student U Marketplace: Listing' });
-});
-
-// Listing Page
-router.get('/listing', function(req, res, next) {
-  res.render('listing');
+res.render('SignUp', { title: 'Student U Marketplace: Listing' });
 });
 
 
-router.get('/listing/:listingId', (req, res) => {
-  const listingId = parseInt(req.params.listingId); // Convert listingId to a number
-
-  const foundListing = fakeListings.find(listing => listing.id === listingId);
   
-  // Handle case where listing not found
-  if (!foundListing) {
-    return res.status(404).render('404');
-  }
 
-  console.log("Found Listing:", foundListing); // Log for verification
+  
 
+    
+ 
 
-  // Render the listing page template with retrieved data
-  res.render('listing', { listing: foundListing });
-});
 
 
 

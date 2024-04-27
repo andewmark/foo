@@ -6,9 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
-// var wss = require('./bin/www');
 
-const websocketService = require('./bin/websocket');
+
 
 
 var indexRouter = require('./routes/index');
@@ -47,17 +46,6 @@ app.use(function(err, req, res, next) {
   res.render('404');
 });
 
-
-// EVENT THAT CONNECTION IS FORMED
-websocketService.on('connected', () => {
-  // Now the WebSocket connection is established, you can safely call sendRequests
-  const queries = [
-      'SELECT * FROM listings;',
-      'SELECT * FROM users;',
-      'SELECT * FROM campuses WHERE campus_name = "Huda\'s University";'
-  ];
-  websocketService.sendRequests(queries);
-});
 
 module.exports = app;
 
