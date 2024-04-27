@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <style>
+        hr.solid {
+    border-top: 1px solid lightgray;
+  }
+
+h1 a {
+    font-family:  blippo, fantasy;
+    text-decoration: none;
+    color: inherit;
+    font-size: x-large;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    right: 128px;
+}
+
+h5 {
+    text-align: center;
+    color: rgb(80, 79, 79);
+}
+
+#welcome {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    right: 150px;
+}
+
+#title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+    right: 150px;
+    top: 20px;
+}
+
+#create {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    text-align: center;
+    position: relative;
+    right: 135px;
+    top: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 5px 0;
+    width: 400px;
+    border: groove;
+    border-color: rgb(227, 224, 224);
+    border-radius: 5px;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    margin-bottom: 3px;
+    margin-right: 2px;
+}
+
+input[type=checkbox] {
+    position: relative;
+    right: 252px;
+}
+
+label[for="rememberMe"] {
+    position: relative;
+    bottom: 33px;
+    right: 35px
+}
+
+input[type=submit] {
+    padding: 4px;
+    background-color: #24a0ed;
+    color:white;
+    margin-top: -10px;
+    display: block;
+    font-size: large;
+    border: none;
+    padding: 10px 0;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(4, 35, 172);
+}
+
+#acc {
+    margin-top: 10px;
+}
+
+input, label {
+    display: block;
+    position: relative;
+    right: 55px;
+}
+
+#signup {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: small;
+}
+
+#forgot {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: small;
+    display: block;
+    margin: auto 40px;
+    position: relative;
+    bottom: 141px;
+    left: 205px;
+}
+
+.border {
+    margin: 30px auto;
+    height: 300px;
+    width: 300px;
+}
+    </style>
+    
+</head>
+<body>
+
+    <nav>
+        <h1><a href="#home">Logo goes here</a></h1>
+    </nav>
+
+    <hr class="solid">
+
+    <h1 id="create">Sign up</h1>
+
+    <h3 id="welcome">Hi, Welcome &#x1F44B</h3>
+
+    <section class="border">
+        <form action="/register" method="POST">
+            <% if (messages.error){ %>
+                <div class="alert alert-danger">
+                    <strong><%= messages.error %></strong>
+                </div>
+            
+
+            <%} %>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="theemail" placeholder="E.g. johndoe@gmail.com" required>
+
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="theusername" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="thepassword" required>
+
+            <!-- <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password-input" id="confirm-password"> -->
+
+            <input type="submit" value="Create account" id="acc">
+
+        </form>
+
+        <!-- Swap to Login Page -->
+        <div class ="account">
+            <h5>Already have an account? <a href="./login" id="signup">login here &#129149</a></h5>
+        </div>
+
+    </section>
+
+</body>
+</html>
