@@ -46,20 +46,27 @@ websocketService.on('connected', () => {
 
   });
 
-  // Query for saved: 1 : 1 -> userid,listingid
-  let UserSaved = "SELECT savings.*, listings.price, listings.title, users.residence_hall, listings.image_url FROM savings JOIN users ON savings.user_id = users.id JOIN listings ON savings.listing_id = listings.id";
+  // Query for saved: 1 : 1 -> userid,listingid,price,title,residence_hall,imageurl
+  let UserSaved = "SELECT savings.*, listings.price, listings.title, users.residence_hall, listings.image_url FROM savings JOIN users ON savings.user_id = users.id JOIN listings ON savings.listing_id = listings.id WHERE savings.user_id ="+ currUser+";";
   websocketService.sendRequests(UserSaved);
   websocketService.on('dataReceived', (Data) => {
     // printing out savings data
     console.log(UserSaved);
+
+      // Buying Page
+    router.get('/buying', function(req, res, next) {
+      res.render('buying', { fakeListings: fakeListings });
+    });
+
+    router.get('/buying/:currUser', (req, res) => {
+      currUser = currUser 
+
+      res.render('buying', {})
+    })
     
   });
 
-  
-  // Buying Page
-  router.get('/buying', function(req, res, next) {
-    res.render('buying', { fakeListings: fakeListings });
-  });
+
 
 
 });
