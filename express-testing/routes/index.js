@@ -1,31 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const websocketService = require('../bin/websocket');
+const currUser=7;
 
-const fakeListings = [
-  {
-    id: 1,
-    title: 'Calculus Textbok ', // max 25 characters
-    price: '$25.00',
-    description: 'Used Calculus textbook in excellent condition. LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONGLONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG',
-    imageUrl: '/images/img_lights.jpg', // Assuming an image path in your 'public' directory
-    location: 'Flannel Hall',
-    // ... other listing details
-  },
-  {
-    id: 2,
-    title: 'Used Bicycle - Great Condition',
-    price: '$1,000.00',
-    condition: 'Good',
-    description: 'Well-maintained bicycle, perfect for students.',
-    imageUrl: '/images/img_forest.jpg',
-    location: 'Burns Hall',
-    // ... other listing details
-  },
-  ];
+const fakeListings = [];
 
 //let User_listings ="SELECT * from listings WHERE user_id = 6;";
-let User_listings = "SELECT listings.*, users.username, users.ratings FROM listings JOIN users ON listings.user_id = users.id";
+let User_listings = "SELECT listings.*, users.username, users.ratings, users.residence_hall FROM listings JOIN users ON listings.user_id = users.id";
 
 websocketService.on('connected', () => {
 
@@ -65,11 +46,23 @@ websocketService.on('connected', () => {
 
   });
 
+  // Query for saved: 1 : 1 -> userid,listingid
+  let UserSaved = "SELECT savings.*, listings.price, listings.title, users.residence_hall, listings.image_url FROM savings JOIN users ON savings.user_id = users.id JOIN listings ON savings.listing_id = listings.id";
+  websocketService.sendRequests(UserSaved);
+  websocketService.on('dataReceived', (Data) => {
+    // printing out savings data
+    console.log(UserSaved);
+    
+  });
+
+  
+  // Buying Page
+  router.get('/buying', function(req, res, next) {
+    res.render('buying', { fakeListings: fakeListings });
+  });
+
 
 });
-
-
-
 
 
 // /* GET home page. */
@@ -77,10 +70,7 @@ websocketService.on('connected', () => {
 // res.render('home', {fakeListings: fakeListings});
 // });
 
-// Buying Page
-router.get('/buying', function(req, res, next) {
-res.render('buying', { fakeListings: fakeListings });
-});
+
 
 // Messaging Page
 router.get('/chat', function(req, res, next) {
