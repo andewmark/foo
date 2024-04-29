@@ -25,7 +25,7 @@ const fakeListings = [
   ];
 
 //let User_listings ="SELECT * from listings WHERE user_id = 6;";
-let User_listings = "SELECT listings.*, users.username, users.rating FROM listings JOIN users ON listings.user_id = users.id";
+let User_listings = "SELECT listings.*, users.username, users.ratings FROM listings JOIN users ON listings.user_id = users.id";
 
 websocketService.on('connected', () => {
 

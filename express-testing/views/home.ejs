@@ -47,7 +47,7 @@
 
         <% for(let i=0; i < fakeListings.length; i++) { %> <!-- Creating for loop for each listing -->
         <div class="post-container">
-            <a href="/listing/<%= fakeListings[i].id %>"><img id="pic1" src="<%= fakeListings[i].imageUrl %>"></a>
+            <a href="/listing/<%= fakeListings[i].id %>"><img id="pic1" src="<%= fakeListings[i].image_url %>"></a>
             <div class="item-details">
                 <p id="Price">$<%= fakeListings[i].price %></p> <!--XX changes Based on DB-->
                 <p id="Title"><%= fakeListings[i].title %></p> <!-- Changes Based on DB-->
