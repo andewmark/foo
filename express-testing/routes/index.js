@@ -6,14 +6,17 @@ const currUser=7;
 const fakeListings = [];
 
 //let User_listings ="SELECT * from listings WHERE user_id = 6;";
-let User_listings = "SELECT listings.*, users.username, users.ratings, users.residence_hall FROM listings JOIN users ON listings.user_id = users.id";
 
+
+// websocketService.on('close', (ws) => { 
+//   this.handleConnectionClose(ws);
+// });
+let User_listings = "SELECT listings.*, users.username, users.ratings, users.residence_hall FROM listings JOIN users ON listings.user_id = users.id";
 websocketService.on('connected', () => {
 
   websocketService.sendRequests(User_listings);
-
   websocketService.on('dataReceived', (Data) => {
-    console.log(Data);
+    // console.log(Data);
 
     /* GET home page. */
   router.get('/', function(req, res, next) {
@@ -46,30 +49,36 @@ websocketService.on('connected', () => {
 
   });
 
-  // Query for saved: 1 : 1 -> userid,listingid,price,title,residence_hall,imageurl
+});
+
+
+
+websocketService.on('connected', () => {
+
   let UserSaved = "SELECT savings.*, listings.price, listings.title, users.residence_hall, listings.image_url FROM savings JOIN users ON savings.user_id = users.id JOIN listings ON savings.listing_id = listings.id WHERE savings.user_id ="+ currUser+";";
   websocketService.sendRequests(UserSaved);
-  websocketService.on('dataReceived', (Data) => {
+
+  websocketService.on('dataReceived', (Data_savings) => {
     // printing out savings data
-    console.log(UserSaved);
-
+    console.log(Data_savings);
       // Buying Page
-    router.get('/buying', function(req, res, next) {
-      res.render('buying', { fakeListings: fakeListings });
+    router.get('/buying', (req, res, next) => {
+        res.render('buying', {listings: Data_savings});
     });
-
-    router.get('/buying/:currUser', (req, res) => {
-      currUser = currUser 
-
-      res.render('buying', {})
-    })
     
   });
 
-
-
-
 });
+
+  
+
+  // Query for saved: 1 : 1 -> userid,listingid,price,title,residence_hall,imageurl
+  
+
+
+
+
+
 
 
 // /* GET home page. */

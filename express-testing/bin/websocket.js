@@ -29,6 +29,7 @@ class WebSocketService extends EventEmitter {
             this.handleIncomingMessage(ws, message);
         });
 
+        this.emit('closed'); 
         // Handle connection closure
         ws.on('close', () => {
             this.handleConnectionClose(ws);

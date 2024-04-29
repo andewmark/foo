@@ -57,7 +57,7 @@
     <!-- Gallery content will go here -->
 
     <div class="recent" id="recent">
-        <% if (fakeListings.length > 0) { %>
+        <% if (listings.length > 0) { %>
         <div class="recent-container">
             <div class="recent-info">
                 <img src="images/defaultImg.png">
@@ -73,15 +73,17 @@
     </div>
 
     <div class = "saved" id="saved">
-        <% if (fakeListings.length > 0) { %>
-        <div class="post-container">
-            <a href="#"><img id="pic1" src="images/img_5terre.jpg"></a>
-            <div class="item-details">
-                <p id="Price">$XX</p> <!--XX changes Based on DB-->
-                <p id="Title">Title Goes Here</p> <!-- Changes Based on DB-->
-                <p id="Location">Location Goes Here</p> <!-- Changes Based on DB-->
-            </div>
-        </div>
+        <% if (listings.length > 0) { %>
+            <% for (let i = 0; i < listings.length; i++) { %>
+                <div class="post-container">
+                    <a href="/listing/<%= listings[i].id %>"><img id="pic1" src="<%= listings[i].image_url %>"></a>
+                    <div class="item-details">
+                        <p id="Price">$<%= listings[i].price %></p> <!--XX changes Based on DB-->
+                        <p id="Title"><%= listings[i].title %></p> <!-- Changes Based on DB-->
+                        <p id="Location"><%= listings[i].residence_hall %></p> <!-- Changes Based on DB-->
+                    </div>
+                </div>
+            <% } %>
     </div>
     <% } else { %>
         <div class="saved-message" id="saved-message">
