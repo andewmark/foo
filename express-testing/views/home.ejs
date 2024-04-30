@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student U Marketplace</title>
+    <link rel="stylesheet" href="./stylesheets/homeStyle.css">
+    <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Menu bar on the left side -->
+    <div class="sidebar">
+        <h3>Student Marketplace</h3>
+        <div class="search">
+            <form action="#">
+                <input type="text" placeholder="Search Marketplace..." name="search">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <a class="active" href="/"><i id="icon" class="fa-solid fa-store"></i> Browse All</a>
+        <a href="/notifications"><i id="icon" class="fa-solid fa-bell"></i> Notifications</a>
+        <a href="/chat"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+        <a href="/buying"><i id="icon" class="fa-solid fa-bag-shopping"></i> Buying <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a href="/selling"><i id="icon" class="fa-solid fa-tag"></i> Selling <i id="rightarrow" class="fa-solid fa-caret-right"></i></a>
+        <a id="new-listing" href="/post"><i class="fa-solid fa-plus"></i> Create new post</a>
+    </div>
+
+    <!-- Navigation tabs centered at the top -->
+    <nav>
+        <a class="active" href="/">Home</a>
+        <a href="buying">Buy</a>
+        <a href="selling">Sell</a>
+        <a href="chat">Messages</a>
+        <a href="notifications">Notifications</a>  
+        
+        <!-- Icon buttons -->
+        <div class="icons">
+            <a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a>
+            <a class="icon" href="profile"><img src="images/icons/user.png" alt="Icon 3"></a>
+        </div>
+    </nav>
+
+    <div class = "gallery">
+
+        <% for(let i=0; i < fakeListings.length; i++) { %> <!-- Creating for loop for each listing -->
+        <div class="post-container">
+            <a href="/listing/<%= fakeListings[i].id %>"><img id="pic1" src="<%= fakeListings[i].image_url %>"></a>
+            <div class="item-details">
+                <p id="Price">$<%= fakeListings[i].price %></p> <!--XX changes Based on DB-->
+                <p id="Title"><%= fakeListings[i].title %></p> <!-- Changes Based on DB-->
+                <p id="Location"><%= fakeListings[i].residence_hall %></p> <!-- Changes Based on DB-->
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+</body>
+</html>

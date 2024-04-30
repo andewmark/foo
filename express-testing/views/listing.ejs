@@ -51,13 +51,13 @@
     <!-- Main area -->
 
     <div class = "preview">
-        <img src="<%= listing.imageUrl %>" target= "_blank" id = "postImg"> 
+        <img src="<%= listing.image_url %>" target= "_blank" id = "postImg"> 
         <div class="listing-info">
             <h2 id = "Title"><%= listing.title %></h2> <!-- This should be changable by user input updated from the side bar-->
             <h2 id = "Price">$<%= listing.price %></h2> <!-- xx Should be changable by user input updated from the side bar-->
             <h3 id = "Details">Details:</h3>
             <h3 id = "Condition">Condition <%= listing.condition %></h3> <!-- XXX Should be changable by user input updated from the side bar-->
-            <h3 id = "Location">Location <span><i class="fa-solid fa-location-dot"></i> <%= listing.resident_hall %></span></h3>
+            <h3 id = "Location">Location <span><i class="fa-solid fa-location-dot"></i> <%= listing.residence_hall %></span></h3>
             <h3 id = "Description"><%= listing.description %></h3> <!-- Should be changable by user input updated from the side bar-->
         </div>
 
@@ -76,7 +76,7 @@
             <h2 id="name">John Smith</h2>
             <div class="user-rating">
                 <% for (let i = 0; i < 5; i++) { %>
-                    <% if (i < listing.rating) { %>
+                    <% if (i < listing.ratings) { %>
                         <i id="checked" class="fa-solid fa-star"></i>
                     <% } else { %>
                         <i class="fa-solid fa-star"></i>

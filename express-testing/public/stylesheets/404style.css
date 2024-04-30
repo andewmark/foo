@@ -1,0 +1,51 @@
+body{
+    font-family:'Verdana';
+    background-image: radial-gradient(circle, #070F28, #1B1A55);
+    color: #ffff;
+}
+
+body::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #1B1A55;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
+/* Main Area */
+
+.content {
+    position: relative;
+    top: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+.content a {
+    background-color: #3c0753;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top: 20px;
+    font-size: 17px;
+}
+
+.content a:hover {
+    transition: .25s;
+    background-color: #ffffff; 
+    color: black; 
+
+    #icon::before {
+        color: white;
+    }
+}
+
+#icon {
+    background-color: #1B1A55;
+    padding: 8px;
+    border-radius: 18px;
+}

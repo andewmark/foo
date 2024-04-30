@@ -10,14 +10,11 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-=======
 using json = nlohmann::json;
 
 // Defining a WebSocket client type
 typedef websocketpp::client<websocketpp::config::asio_client> client;
 client ws_client;
->>>>>>> login/signin
 
 class Database {
 public:
@@ -34,11 +31,7 @@ public:
 
     void connect();
     void disconnect();
-<<<<<<< HEAD
-    void executeQuery(const std::string& query);
-=======
     string executeQuery(const std::string& query);
->>>>>>> login/signin
     virtual void updateQuery(const std::string& query);
 
 private:
@@ -77,13 +70,9 @@ void Database::disconnect() {
     driver_ = nullptr;
 }
 
-<<<<<<< HEAD
-void Database:: executeQuery(const string& query) {
-=======
 string Database::executeQuery(const string& query) {
     cout << "Executing query: " << query << endl;
 
->>>>>>> login/signin
     if (!connection_) {
         cout << "No database connection." << endl;
         return ""; // Return an empty string if there's no connection
@@ -255,116 +244,6 @@ void ViewQuery::updateQuery(const string& query) {
     }
     try {
         sql::Statement* stmt = connection_->createStatement();
-<<<<<<< HEAD
-        sql::ResultSet* res = stmt->executeQuery(query);
-        // First need to the number of columns in the result set
-        int numColumns = res->getMetaData()->getColumnCount();
-
-        // Iterate over the result set and print each row's data
-        while (res->next()) {
-            for (int i = 1; i <= numColumns; ++i) {
-                // Print the value of each column in the current row
-                cout << res->getString(i) << "\t";
-            }
-            cout << endl; // Move to the next line for the next row
-        }
-
-        delete res;
-=======
-        int affectedRows = stmt->executeUpdate(query);
-        cout << "Number of rows affected in view: " << affectedRows << endl;
->>>>>>> login/signin
-        delete stmt;
-    } catch (const sql::SQLException& e) {
-        cout << "Handling Update Query ERR in view: " << e.what() << endl;
-    }
-    disconnect();
-}
-
-
-<<<<<<< HEAD
-void Database::updateQuery(const string& query) {
-    
-        
-        if (!connection_) {
-        cout << "Failure Connecting inside UpdateQuery " << endl;
-            return;
-        }
-        try {
-            sql::Statement* stmt = connection_->createStatement();
-            int affectedRows = stmt->executeUpdate(query);
-            cout << "Number of rows affected: " << affectedRows << endl;
-            delete stmt;
-        }
-        catch (const sql::SQLException& e) {
-            cout << "Handling Update Query ERR: " << e.what() << endl;
-        }
-    
-}
-
-// Derived Class!
-class ViewQuery: public Database{
-public:
-    ViewQuery(const string& host, const string& username, const string& password, const string& schema, const string& createViewQuery, const string& viewName)
-        : Database(host, username, password, schema), viewCreated_(false), viewName_(viewName){
-             // Connect to the database
-        connect();
-
-        try{
-            sql::Statement* stmt = connection_->createStatement();
-            // need to use execute update for VIEW
-            bool success = stmt->execute(createViewQuery);
-            if (success) {
-                cout << "View created successfully!!!!" << endl;
-                viewCreated_ = true;
-            } else {
-                cout << "View creation failed" << endl;
-            }
-            delete stmt;
-
-        }
-
-        catch(const sql::SQLException& e) {
-            cout << "Error creating view: " << e.what() << endl;
-            if (string(e.what()).find("already exists") != string::npos) {
-                viewCreated_ = true;
-    }
-        }
-
-        disconnect();
-
-        }
-
-        void printView();
-        void updateQuery(const std::string& query) override;
-
-
-        private:
-            bool viewCreated_;
-            string viewName_;
-};
-
-
-
-void ViewQuery:: printView(){
-            connect();
-            if (!viewCreated_) {
-                cout << "Unknown view, it hasn,t been created." << endl;
-                return;
-        }
-            executeQuery("SELECT * FROM " + viewName_);
-            disconnect();
-
-};
-
-void ViewQuery::updateQuery(const string& query) {
-    connect();
-    if (!connection_) {
-        cout << "Connecting inside UpdateQuery " << endl;
-        return;
-    }
-    try {
-        sql::Statement* stmt = connection_->createStatement();
         int affectedRows = stmt->executeUpdate(query);
         cout << "Number of rows affected in view: " << affectedRows << endl;
         delete stmt;
@@ -375,27 +254,6 @@ void ViewQuery::updateQuery(const string& query) {
 }
 
 
-
-
-int main() {
-    Database Huda("127.0.0.1", "root", "password", "studentmarket");
-    Huda.connect();
-    Huda.executeQuery("SELECT * FROM campuses");
-    string viewName= "my_view6";
-    string createViewQuery = "CREATE VIEW " + viewName + " AS SELECT * FROM campuses WHERE id = 1";
-
-    
-    ViewQuery Huda_view(Huda.getHost(),Huda.getUsername(),Huda.getPassword(),Huda.getSchema(),createViewQuery,viewName );
-    Huda_view.printView();
-    Huda_view.updateQuery("UPDATE " + viewName + " SET campus_name = 'Huda\\'s University' WHERE id = 1");
-    Huda_view.printView();
-    Huda.disconnect();
-
-    // delete Huda;
-    // delete Huda_view;
-    return 0;
-}
-=======
 int main() {
     // Create a Database object and establish a database connection
     Database Huda("127.0.0.1", "root", "password", "studentmarket");
@@ -489,4 +347,3 @@ int main() {
 
     return 0;
 }
->>>>>>> login/signin

@@ -1,0 +1,231 @@
+body{
+    font-family:'Verdana';
+    background-image: radial-gradient(circle, #070F28, #1B1A55);
+    color: #ffff;
+}
+
+body::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #1B1A55;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
+.active {
+    background-color: #030637;
+    color: white;
+    border-color: transparent;
+}
+
+/* Styles for the menu bar */
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:#3c0753;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 0;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 10px; /* Adjust width of scrollbar */
+    background-color: #3c0753; /* Set background color of scrollbar track */
+  }
+  
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #7c7c7c; /* Set background color of scrollbar thumb */
+    border-radius: 10px; /* Add rounded corners to thumb */
+  }
+
+h3 {
+    position: relative;
+    left: 10px;
+    bottom: 30px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.sidebar > a {
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    display: block;
+    position: relative;
+    bottom: 20px;
+    margin: 2px;
+}
+
+.sidebar a:hover {
+    transition: .25s;
+    background-color: #ffffff; 
+    color: black; 
+
+    #icon::before {
+        color: white;
+    }
+  }
+
+.search input {
+    height: 30px;
+    width: 230px;
+    border-radius: 13px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#rightarrow {
+    position: relative;
+    left: 140px;
+}
+
+#icon {
+    background-color: #1B1A55;
+    padding: 8px;
+    border-radius: 18px;
+}
+
+#new-listing {
+    background-color: #910a67;
+    color: #ffffff;
+    margin: 10px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    text-align: center;
+    font-size: 16px;
+}
+
+#new-listing:hover {
+    background-color: #b02584;
+    transition: .25s;
+    color: black;
+    cursor: pointer;
+}
+
+/* For main Area */
+
+.profile-container {
+    background-color: #3c0753;
+    width: 75%;
+    height: auto;
+    min-height: 500px;
+    position: relative;
+    top: 20px;
+    left: 310px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,3);
+    border-radius: 20px;
+    overflow-x: hidden;
+}
+
+.profile-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+#banner {
+    height: 250px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.profile-picture-container {
+    height: 150px;
+    width: 150px;
+    border: #fff solid 3px;
+    border-radius: 2000px;
+    position: relative;
+    bottom: 120px;
+    left: 10px;
+}
+
+.profile-information-container {
+    position: relative;
+    left: 150px;
+    bottom: 150px;
+    width: 80%;
+}
+
+.profile-information-container i {
+    color: #b02584;
+}
+
+#location {
+    position: relative;
+    bottom: 95px;
+    left: 450px;
+}
+
+#name {
+    font-size: 30px;
+}
+
+#username {
+    font-size: 16px;
+}
+
+#bio {
+    position: relative;
+    bottom: 50px;
+}
+
+.user-rating {
+    position: relative;
+    bottom: 50px;
+}
+
+.user-rating h2{
+    font-size: 20px;
+}
+
+.user-rating i {
+    color: black;
+    position: relative;
+    bottom: 15px;
+    
+} 
+
+#checked {
+    color: gold;
+}
+
+.edit-profile {
+    background-color: #910a67;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    bottom: 250px;
+    left: 630px;
+    transition: .25s ease;
+}
+
+.edit-profile:hover {
+    background-color: #b02584;
+    transition: .25s;
+}
