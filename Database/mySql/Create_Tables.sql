@@ -1,74 +1,68 @@
 CREATE TABLE `users` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `username` VARCHAR(255),
-  `email` VARCHAR(255),
-  `password` VARCHAR(255),
-  `campus_id` INTEGER,
-  `name` VARCHAR(255),
-  `profile_url` VARCHAR(255),
-  `created_at` TIMESTAMP,
-  FOREIGN KEY (`campus_id`) REFERENCES `campuses` (`id`)
+  `id` integer PRIMARY KEY,
+  `username` varchar(255),
+  `email` varchar(255),
+  `password` varchar(255),
+  `campus_id` integer,
+  `created_at` timestamp
 );
 
 CREATE TABLE `campuses` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `campus_name` VARCHAR(255),
-  `address` VARCHAR(255),
-  `city` VARCHAR(255),
-  `state` VARCHAR(255),
-  `country` VARCHAR(255),
-  `postal_code` VARCHAR(255),
-  `latitude` DECIMAL,
-  `longitude` DECIMAL,
-  `description` VARCHAR(255),
-  `established_date` DATE
+  `id` integer PRIMARY KEY,
+  `campus_name` varchar(255),
+  `address` varchar(255),
+  `city` varchar(255),
+  `state` varchar(255),
+  `country` varchar(255),
+  `postal_code` varchar(255),
+  `latitude` decimal,
+  `longitude` decimal,
+  `description` text,
+  `established_date` date
 );
 
 CREATE TABLE `listings` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `user_id` INTEGER,
-  `title` VARCHAR(255),
-  `description` TEXT,
-  `price` DECIMAL,
-  `category_id` INTEGER,
-  `status` VARCHAR(255),
-  `condition` VARCHAR(255), -- Added the condition column
-  `created_at` TIMESTAMP,
-  `updated_at` TIMESTAMP,
-  `image_url` VARCHAR(255),
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+  `id` integer PRIMARY KEY,
+  `user_id` integer,
+  `title` varchar(255),
+  `description` text,
+  `price` decimal,
+  `category_id` integer,
+  `status` varchar(255),
+  `created_at` timestamp,
+  `updated_at` timestamp
 );
 
 CREATE TABLE `categories` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `category_name` VARCHAR(255)
+  `id` integer PRIMARY KEY,
+  `category_name` varchar(255)
 );
 
--- CREATE TABLE `images` (
---   `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
---   `listing_id` INTEGER,
---   `image_url` VARCHAR(255),
---   FOREIGN KEY (`listing_id`) REFERENCES `listings` (`id`)
+CREATE TABLE `images` (
+  `id` integer PRIMARY KEY,
+  `listing_id` integer,
+  `image_url` varchar(255)
 );
 
 CREATE TABLE `messages` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `sender_id` INTEGER,
-  `receiver_id` INTEGER,
-  `listing_id` INTEGER,
-  `message_content` TEXT,
-  `created_at` TIMESTAMP,
-  FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
-  FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`),
-  FOREIGN KEY (`listing_id`) REFERENCES `listings` (`id`)
+  `id` integer PRIMARY KEY,
+  `sender_id` integer,
+  `receiver_id` integer,
+  `listing_id` integer,
+  `message_content` text,
+  `created_at` timestamp
 );
 
--- New table for savings
-CREATE TABLE `savings` (
-  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-  `user_id` INTEGER,
-  `listing_id` INTEGER,
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  FOREIGN KEY (`listing_id`) REFERENCES `listings` (`id`)
-);
+ALTER TABLE `users` ADD FOREIGN KEY (`campus_id`) REFERENCES `campuses` (`id`);
+
+ALTER TABLE `listings` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+ALTER TABLE `listings` ADD FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+
+ALTER TABLE `images` ADD FOREIGN KEY (`listing_id`) REFERENCES `listings` (`id`);
+
+ALTER TABLE `messages` ADD FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`);
+
+ALTER TABLE `messages` ADD FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`);
+
+ALTER TABLE `messages` ADD FOREIGN KEY (`listing_id`) REFERENCES `listings` (`id`);

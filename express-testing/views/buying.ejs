@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student U Marketplace: Buying Page</title>
+    <link rel="stylesheet" href="./stylesheets/buying.css">
+    <script src="https://kit.fontawesome.com/cd3149d197.js" crossorigin="anonymous"></script>
+
+    <script>
+        function switchVisibleSaved() {
+            document.getElementById("savedBar").classList.add("active");
+            document.getElementById("recentBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'none';
+            document.getElementById('saved').style.display = 'grid';
+            document.getElementById('saved-message').style.display = 'block';
+            
+        }
+
+        function switchVisibleRecent() {
+            document.getElementById("recentBar").classList.add("active");
+            document.getElementById("savedBar").classList.remove("active");
+
+            document.getElementById('recent').style.display = 'block';
+            document.getElementById('saved').style.display = 'none';
+            document.getElementById('saved-message').style.display = 'none';
+            
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Menu bar on the left side -->
+    <div class="sidebar">
+        <h3><a id="leftarrow" href="/"><i class="fa-solid fa-arrow-left"></i></a> Student Marketplace <span>Buying</span></h3>
+        <a class="active" id="recentBar" href="#" onclick="switchVisibleRecent();return false;"><i id= "icon" class="fa-solid fa-clock"></i> Recent Activity</a> <!-- Anything that the user has intereacted with the post (besides just clicking on it) will show up in this page-->
+        <a id="savedBar" href="#" onclick="switchVisibleSaved();return false;"><i id="icon" class="fa-solid fa-bookmark"></i> Saved</a>
+        <a href="/chat"><i id="icon" class="fa-solid fa-envelope"></i> Inbox</a>
+    </div>
+
+    <!-- Navigation tabs centered at the top -->
+    <nav>
+        <a href="/">Home</a>
+        <a class="active">Buy</a>
+        <a href="/selling">Sell</a>
+        <a href="/chat">Messages</a>
+        <a href="/notifications">Notifications</a>  
+        
+        <!-- Icon buttons -->
+        <div class="icons">
+            <a class="icon" href="#"><img src="images/icons/bank.png" alt="Icon 1"></a>
+            <a class="icon" href="profile"><img src="images/icons/user.png" alt="Icon 3"></a>
+        </div>
+    </nav>
+
+    <!-- Gallery content will go here -->
+
+    <div class="recent" id="recent">
+        <% if (listings.length > 0) { %>
+        <div class="recent-container">
+            <div class="recent-info">
+                <img src="images/defaultImg.png">
+                <h2 id="listing-title">Title goes here</h2>
+                <h3 id="listing-price">$XX</h3>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="recent-message" id="recent-message">
+            <h4><i class="fa-solid fa-shop"></i><br>Recent Activity Will Show up Here,<br> Go Explore!</h4>
+        </div>
+        <% } %>
+    </div>
+
+    <div class = "saved" id="saved">
+        <% if (listings.length > 0) { %>
+            <% for (let i = 0; i < listings.length; i++) { %>
+                <div class="post-container">
+                    <a href="/listing/<%= listings[i].id %>"><img id="pic1" src="<%= listings[i].image_url %>"></a>
+                    <div class="item-details">
+                        <p id="Price">$<%= listings[i].price %></p> <!--XX changes Based on DB-->
+                        <p id="Title"><%= listings[i].title %></p> <!-- Changes Based on DB-->
+                        <p id="Location"><%= listings[i].residence_hall %></p> <!-- Changes Based on DB-->
+                    </div>
+                </div>
+            <% } %>
+    </div>
+    <% } else { %>
+        <div class="saved-message" id="saved-message">
+            <h4><i class="fa-solid fa-bookmark"></i><br>Saved Items Will Show up Here,<br> Go Explore!</h4>
+        </div>
+        <% } %>
+    
+    
+</body>
+</html>

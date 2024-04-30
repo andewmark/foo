@@ -1,13 +1,9 @@
-CXX = g++
-CXXFLAGS = -std=c++17 -arch arm64 -stdlib=libc++
-INCLUDES = -I"/usr/local/mysql-connector-c++/include"
-LIBS = -L"/usr/local/mysql-connector-c++/lib64" -lmysqlcppconn-static -lssl -lcrypto -lresolv
+MYSQL_CONCPP_DIR = "/usr/local/mysql-connector-c++/include/jdbc"
+CPPFLAGS = -I$(MYSQL_CONCPP_DIR) -I"/usr/local/mysql-connector-c++/include" -L"/usr/local/mysql-connector-c++/lib64"
+LDLIBS = -lmysqlcppconn8
+CXX = clang++ -stdlib=libc++
+CXXFLAGS = -std=c++17 -Wall
 
-output_file: main.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
-
-.PHONY: clean
-
-clean:
-	rm -f output_file
+main: main.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o main main.cpp $(LDLIBS)
 
